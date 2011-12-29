@@ -30,32 +30,21 @@ shift
 
 . setupOutPaths.sh.inc
 
-#time scala -cp BoaCaseStudy/target/scala_2.8.1/classes:FeatureExprLib/lib/org.sat4j.core.jar:FeatureExprLib/target/scala_2.8.1/classes:\
-#  PartialPreprocessor/target/scala_2.8.1/classes:PartialPreprocessor/lib/gnu.getopt.jar \
-#  <(echo -e '#define b ciao\nb')
 
 if [ ! -f "$outPreproc" ]; then
-  echo "=="
   echo "==Preprocess source"
-  echo "=="
   gcc -Wp,-P -U __weak $gccOpts -E "$inp" "$@" > "$outPreproc" || true
 fi
 
 # Beware: the embedded for loop requotes the passed argument. That's dark magic,
 # don't ever try to touch it. It simplifies your life as a user of this program
 # though!
-echo "==Partially preprocessing $inp"
-echo $partialPreprocFlags
+echo "==TypeChef $inp"
 
 bash -c "time $typechefDir/typechef.sh\
   $(for arg in $partialPreprocFlags "$@"; do echo -n "\"$arg\" "; done) \
   '$inp' 2> '$outErr' |tee '$outDbg'" \
   2> "$outTime" || true
-#bash -c "time java -ea $javaOpts -jar $sbtPath 'project PreprocessorFrontend' \
-#  \"run $(for arg in $partialPreprocFlags "$@"; do echo -n "\"$arg\" "; done) \
-#  '$inp' -o '$outPartialPreproc'\"  \
-#  2> '$outErr'|tee '$outDbg'" \
-#  2> "$outTime" || true
 
 
 cat "$outErr" 1>&2
