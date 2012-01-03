@@ -4,18 +4,33 @@ import java.io.File
 
 /**
  * adhoc reader for KConfig (busybox subset)
+ *
+ * expects three parameters
+ * - directory (which contains a Config.in file)
+ * - target file in which the feature model is stored
+ * - target file in which the generated header file is stored
+ *
  */
 
 object KConfigReader extends App {
 
-    if (args.size != 1 || !new File(args(0)).exists || !new File(args(0)).isDirectory)   {
-        println("expected a parameter pointing to the busybox root directory")
+    if (args.size < 1) {
+        println("expected three parameters\n" +
+            " - directory (which contains a Config.in file)\n - target file in which the feature model is stored\n - target file in which the generated header file is stored")
         sys.exit();
     }
+
+    if (!new File(args(0)).exists || !new File(args(0)).isDirectory)
+        throw new RuntimeException(args(0) + " is not a directory")
+
 
     val path = args(0) //"S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox-1.18.5\\"
 
     var config = io.Source.fromFile(path + "Config.in").getLines().toList
+
+    var outFeatureModel = ""
+    var outHeader = "";
+
 
     var flag = ""
     var skipHelp = false
@@ -24,28 +39,38 @@ object KConfigReader extends App {
     var menuStack = List[String]()
 
     var features = List[String]()
+    var choiceAlternatives: List[String] = Nil
 
     def processConfig() {
         if (flag == "") return;
         if (flagType == "bool") {
             println(dir + "/" + flag /*+ " => " + flagDep*/)
 
-            //            println("#ifdef CONFIG_"+flag+"\n" +
-            //                    "   #define ENABLE_"+flag+" 1\n" +
-            //                    "   #define IF_"+flag+"(...) __VA_ARGS__\n" +
-            //                    "   #define IF_NOT_"+flag+"(...)\n" +
-            //                    "#else\n" +
-            //                    "   #define ENABLE_"+flag+" 0\n" +
-            //                    "   #define IF_NOT_"+flag+"(...) __VA_ARGS__\n" +
-            //                    "   #define IF_"+flag+"(...)\n" +
-            //                    "#endif")
+
+            outHeader += "#ifdef CONFIG_" + flag + "\n" +
+                "   #define ENABLE_" + flag + " 1\n" +
+                "   #define IF_" + flag + "(...) __VA_ARGS__\n" +
+                "   #define IF_NOT_" + flag + "(...)\n" +
+                "#else\n" +
+                "   #define ENABLE_" + flag + " 0\n" +
+                "   #define IF_NOT_" + flag + "(...) __VA_ARGS__\n" +
+                "   #define IF_" + flag + "(...)\n" +
+                "#endif\n\n"
+
+            if (!flagDep.trim.isEmpty)
+                outFeatureModel += "defined(CONFIG_" + flag + ") => " + flagDep.replaceAll("\\w+", "defined(CONFIG_$0)") + "\n"
 
             features = flag :: features
         }
+        choiceAlternatives = flag :: choiceAlternatives
         flag = ""
         skipHelp = false
         flagType = ""
         flagDep = ""
+    }
+    def processChoice() {
+        if (choiceAlternatives.isEmpty) return;
+        outFeatureModel += choiceAlternatives.map("defined(CONFIG_" + _ + ")").mkString("oneOf(", ",", ")\n")
     }
 
     var dir = ""
@@ -73,13 +98,21 @@ object KConfigReader extends App {
 
         if (!skip && line.startsWith("source")) {
             processConfig()
-            val file = path + line.drop(7)
+            var file = path + line.drop(7)
             dir = line.drop(7).take(line.drop(7).lastIndexOf("/"))
             config =
                 io.Source.fromFile(file).getLines().toList ++ config
-
         }
 
+        if (!skip && line.trim() == ("choice")) {
+            processConfig
+            choiceAlternatives = Nil
+        }
+
+        if (!skip && line.trim() == ("endchoice")) {
+            processConfig
+            processChoice
+        }
 
         if (!skip && !skipHelp && flag != "" && line.trim() == ("help"))
             skipHelp = true
@@ -87,8 +120,13 @@ object KConfigReader extends App {
         if (!skip && !skipHelp && flag != "" && line.trim().startsWith("bool"))
             flagType = "bool"
 
-        if (!skip && !skipHelp && flag != "" && line.trim().startsWith("depends on"))
+        if (!skip && !skipHelp && flag != "" && line.trim().startsWith("depends on")) {
             flagDep = line.trim.drop(11)
+            //remove trailing comments
+            if (flagDep.indexOf('#') >= 0)
+                flagDep = flagDep.take(flagDep.indexOf('#'))
+        }
+
 
     }
 
@@ -97,6 +135,16 @@ object KConfigReader extends App {
     assert(menuStack.isEmpty)
 
     println(features.size + " - " + features.toSet.size)
+
+    if (args.size > 1) {
+        val p = new java.io.PrintWriter(args(1))
+        try {p.write(outFeatureModel)} finally {p.close()}
+    }
+    if (args.size > 2) {
+        val p = new java.io.PrintWriter(args(2))
+        try {p.write(outHeader)} finally {p.close()}
+    }
+
 
 }
 
