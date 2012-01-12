@@ -1,3 +1,14 @@
+#this script extracts the 
+#* presence condition for files
+#* the feature model
+#* the header file
+
+
+#create a directory gitbusybox and download busybox sources there
+
+#you'll need KBuildMiner
+#http://code.google.com/p/variability/source/browse/KBuildMiner/
+#and Maven (mvn) to generate the list of presence conditions per files
 cd KBuildMiner
 mvn scala:run -q -DmainClass=gsd.buildanalysis.linux.KBuildMinerMain
 cd ..
