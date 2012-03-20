@@ -36,6 +36,8 @@ object KConfigReader extends App {
     var skipHelp = false
     var flagType = ""
     var flagDep = ""
+    var groupDep = ""
+    var inChoiceHeader = false
     var menuStack = List[String]()
 
     var features = List[String]()
@@ -59,6 +61,8 @@ object KConfigReader extends App {
 
             if (!flagDep.trim.isEmpty)
                 outFeatureModel += "defined(CONFIG_" + flag + ") => " + flagDep.replaceAll("\\w+", "defined(CONFIG_$0)") + "\n"
+            if (!groupDep.trim.isEmpty)
+                outFeatureModel += "defined(CONFIG_" + flag + ") => " + groupDep.replaceAll("\\w+", "defined(CONFIG_$0)") + "\n"
 
             features = flag :: features
         }
@@ -83,6 +87,7 @@ object KConfigReader extends App {
         if (line.trim == "" || line.trim.startsWith("#") || line.trim.startsWith("comment") || line.trim.startsWith("mainmenu")) skip = true
 
         if (!skip && line.startsWith("config")) {
+            inChoiceHeader=false
             processConfig()
 
             flag = line.drop(7).trim
@@ -107,11 +112,14 @@ object KConfigReader extends App {
         if (!skip && line.trim() == ("choice")) {
             processConfig
             choiceAlternatives = Nil
+            inChoiceHeader=true
         }
 
         if (!skip && line.trim() == ("endchoice")) {
             processConfig
             processChoice
+            groupDep=""
+            inChoiceHeader=false
         }
 
         if (!skip && !skipHelp && flag != "" && line.trim() == ("help"))
@@ -120,11 +128,15 @@ object KConfigReader extends App {
         if (!skip && !skipHelp && flag != "" && line.trim().startsWith("bool"))
             flagType = "bool"
 
-        if (!skip && !skipHelp && flag != "" && line.trim().startsWith("depends on")) {
-            flagDep = line.trim.drop(11)
+        if (!skip && !skipHelp && line.trim().startsWith("depends on")) {
+            var v = line.trim.drop(11)
             //remove trailing comments
-            if (flagDep.indexOf('#') >= 0)
-                flagDep = flagDep.take(flagDep.indexOf('#'))
+            if (v.indexOf('#') >= 0)
+                v = v.take(v.indexOf('#'))
+            if (flag != "" )
+                flagDep = v
+            if (inChoiceHeader)
+                groupDep = v
         }
 
 
