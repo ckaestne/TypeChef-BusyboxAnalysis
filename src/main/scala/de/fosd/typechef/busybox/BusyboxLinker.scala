@@ -5,10 +5,28 @@ import de.fosd.typechef.featureexpr.{FeatureModel, FeatureExpr, FeatureExprParse
 import de.fosd.typechef.typesystem.linker._
 
 
+trait Config {
+    def getFeatureModelFile: String
+    def getFileListFile: String
+    def getSourceDir: String
+}
+
+object BB_1_18_5 extends Config {
+    def getFeatureModelFile: String      ="S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox\\featureModel"
+    def getFileListFile: String     = "S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox\\busybox_files"
+    def getSourceDir: String      ="S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox-1.18.5\\"
+}
+object BB_Git extends Config {
+    def getFeatureModelFile: String      =getSourceDir + "featureModel"
+    def getFileListFile: String  =getSourceDir + "filelist"
+    def getSourceDir: String      ="S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\gitbusybox\\"
+}
+
 object BusyboxHelp {
+    val config:Config = BB_Git
     def getBusyboxVM(): FeatureExpr = {
         var fm = FeatureExpr.base
-        for (l: String <- io.Source.fromFile("S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox\\featureModel").getLines())
+        for (l: String <- io.Source.fromFile(config.getFeatureModelFile).getLines())
             if (l != "") {
                 val f = new FeatureExprParser().parse(l)
                 fm = fm and f
@@ -16,8 +34,8 @@ object BusyboxHelp {
         fm
     }
 
-    val path = "S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox-1.18.5\\"
-    val filesfile = "S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox\\busybox_files"
+    val path = config.getSourceDir
+    val filesfile = config.getFileListFile
     val featuresfile = path + "features"
 
     var fileList = io.Source.fromFile(filesfile).getLines().toList
