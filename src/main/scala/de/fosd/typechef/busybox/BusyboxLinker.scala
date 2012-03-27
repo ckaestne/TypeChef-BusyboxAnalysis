@@ -1,7 +1,7 @@
 package de.fosd.typechef.busybox
 
 import java.io.File
-import de.fosd.typechef.featureexpr.{FeatureModel, FeatureExpr, FeatureExprParser}
+import de.fosd.typechef.featureexpr.{FeatureModel, FeatureExpr, FeatureExprParser,And}
 import de.fosd.typechef.typesystem.linker._
 
 
@@ -9,30 +9,31 @@ trait Config {
     def getFeatureModelFile: String
     def getFileListFile: String
     def getSourceDir: String
+    def getInterfaceExtension:String
 }
 
 object BB_1_18_5 extends Config {
     def getFeatureModelFile: String      ="S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox\\featureModel"
     def getFileListFile: String     = "S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox\\busybox_files"
     def getSourceDir: String      ="S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\busybox-1.18.5\\"
+    def getInterfaceExtension=".c.interface"
 }
 object BB_Git extends Config {
     def getFeatureModelFile: String      =getSourceDir + "featureModel"
     def getFileListFile: String  =getSourceDir + "filelist"
     def getSourceDir: String      ="S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\gitbusybox\\"
+    def getInterfaceExtension=".interface"
 }
 
 object BusyboxHelp {
     val config:Config = BB_Git
-    def getBusyboxVM(): FeatureExpr = {
-        var fm = FeatureExpr.base
-        for (l: String <- io.Source.fromFile(config.getFeatureModelFile).getLines())
-            if (l != "") {
-                val f = new FeatureExprParser().parse(l)
-                fm = fm and f
-            }
-        fm
-    }
+
+    def getBusyboxVMConstraints:Iterator[FeatureExpr] =
+        for (l: String <- io.Source.fromFile(config.getFeatureModelFile).getLines(); if (l != ""))
+                yield new FeatureExprParser().parse(l)
+
+
+    def getBusyboxVM(): FeatureExpr = getBusyboxVMConstraints.fold(FeatureExpr.base)(_ and _)
 
     val path = config.getSourceDir
     val filesfile = config.getFileListFile
@@ -55,7 +56,7 @@ object BusyboxLinker extends App {
 
     println(fileList.size + " files")
     //    println(fileList.map(f => reader.readInterface(new File(path+f + ".c.interface"))))
-    var interfaces = fileList.map(f => reader.readInterface(new File(path + f + ".c.interface"))).map(SystemLinker.linkStdLib(_))
+    var interfaces = fileList.map(f => reader.readInterface(new File(path + f + config.getInterfaceExtension))).map(SystemLinker.linkStdLib(_))
 
     println("composing")
 
@@ -79,8 +80,12 @@ object BusyboxLinker extends App {
             //            if (!conflicts.isEmpty)
             //                println(conflicts)
 
+            val confl=left getConflicts right
+            for (c<-confl)
+                if (!c._2.isTautology(vm))
+                    println(c)
             if (!(left isCompatibleTo right))
-                println(left getConflicts right)
+                println(confl)
             left link right
         } else if (l.size == 1) l(0)
         else {
@@ -125,7 +130,11 @@ object TmpLinkerStuff extends App {
     def d(s: String) = FeatureExpr.createDefinedExternal(s)
 
     println(fm.isSatisfiable())
-    println((fm implies i.featureModel).isTautology())
+    if (!(fm implies i.featureModel).isTautology()) {
+        println("variability restricted over variability model: ")
+        println(fm andNot i.featureModel)
+    } else
+        println("all expected variability provided")
 
     i = SystemLinker.conditionalLinkSelinux(i, d("CONFIG_SELINUX"))
     i = SystemLinker.conditionalLinkPam(i, d("CONFIG_PAM"))
