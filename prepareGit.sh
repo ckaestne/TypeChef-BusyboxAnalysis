@@ -4,6 +4,8 @@
 #* the header file
 
 
+#if run.sh is missing, run "sbt mkrun"
+
 #create a directory gitbusybox and download busybox sources there
 
 #you'll need KBuildMiner
