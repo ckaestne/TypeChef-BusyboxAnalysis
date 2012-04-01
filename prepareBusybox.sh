@@ -1,9 +1,7 @@
-#this script extracts the 
-#* presence condition for files
-#* the feature model
-#* the header file
+#this script creates the necessary .pc files describing file presence conditions.
 #
 #run "sbt mkrun" to create run.sh the first time
+#(potentially you will need to compile and publish the main TypeChef project first with "sbt publish-local")
 #
 #create a directory  busybox-1.18.5 and download busybox sources there
 
