@@ -1,8 +1,8 @@
 package de.fosd.typechef.busybox
 
 import java.io.File
-import de.fosd.typechef.featureexpr.{FeatureModel, FeatureExpr, FeatureExprParser,And}
 import de.fosd.typechef.typesystem.linker._
+import de.fosd.typechef.featureexpr.{FeatureExprFactory, FeatureExpr, FeatureExprParser}
 
 
 trait Config {
@@ -33,7 +33,7 @@ object BusyboxHelp {
                 yield new FeatureExprParser().parse(l)
 
 
-    def getBusyboxVM(): FeatureExpr = getBusyboxVMConstraints.fold(FeatureExpr.base)(_ and _)
+    def getBusyboxVM(): FeatureExpr = getBusyboxVMConstraints.fold(FeatureExprFactory.True)(_ and _)
 
     val path = config.getSourceDir
     val filesfile = config.getFileListFile
@@ -48,7 +48,7 @@ object BusyboxLinker extends App {
     import BusyboxHelp._
 
 
-    val vm = FeatureModel.create(getBusyboxVM())
+    val vm = FeatureExprFactory.default.featureModelFactory.create(getBusyboxVM())
 
     println("parsing")
 
@@ -127,7 +127,7 @@ object TmpLinkerStuff extends App {
 
     val fm = getBusyboxVM()
 
-    def d(s: String) = FeatureExpr.createDefinedExternal(s)
+    def d(s: String) = FeatureExprFactory.createDefinedExternal(s)
 
     println(fm.isSatisfiable())
     if (!(fm implies i.featureModel).isTautology()) {
@@ -195,14 +195,14 @@ object BusyboxStatistics extends App {
         val pcFile = new File(path + file + ".pi.pc")
         val pc = if (pcFile.exists())
             new FeatureExprParser().parseFile(pcFile)
-        else FeatureExpr.base
+        else FeatureExprFactory.True
         pcs = pcs :+ pc
 
         //interface variability
         val i = new InterfaceWriter() {}.readInterface(new File(path + file + ".c.interface")) //.and(pc)
         interfaces = interfaces :+ SystemLinker.linkStdLib(i)
 
-        var ifeatures = (i.exports ++ i.imports).flatMap(_.fexpr.collectDistinctFeatures).map(_.feature).toSet
+        var ifeatures = (i.exports ++ i.imports).flatMap(_.fexpr.collectDistinctFeatures).toSet
 
         if (features.isEmpty)
             println(file + "  no variability!")
