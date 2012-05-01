@@ -25,8 +25,15 @@ object BB_Git extends Config {
     def getInterfaceExtension=".interface"
 }
 
+object BB_GitServer extends Config {
+    def getFeatureModelFile: String      =getSourceDir + "featureModel"
+    def getFileListFile: String  =getSourceDir + "filelist"
+    def getSourceDir: String      ="gitbusybox/"
+    def getInterfaceExtension=".interface"
+}
+
 object BusyboxHelp {
-    val config:Config = BB_Git
+    val config:Config = BB_GitServer
 
     def getBusyboxVMConstraints:Iterator[FeatureExpr] =
         for (l: String <- io.Source.fromFile(config.getFeatureModelFile).getLines(); if (l != ""))
