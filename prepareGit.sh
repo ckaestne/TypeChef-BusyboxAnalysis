@@ -21,8 +21,10 @@ cd ..
 
 grep -v libunarchive gitbusybox/pc.txt | grep -v Unknown > gitbusybox/pc_clean.txt
 
-cat gitbusybox/pc.txt | sed s/\\.c:.*// | grep -v libunarchive > gitbusybox/filelist
+cat gitbusybox/pc.txt | sed s/\\.c:.*// | grep -v libunarchive | grep -v "/tc$" | grep -v "appletlib" > gitbusybox/filelist
 
 ./run.sh de.fosd.typechef.busybox.ProcessFileList gitbusybox/pc_clean.txt gitbusybox/
 
 ./run.sh de.fosd.typechef.busybox.KConfigReader gitbusybox/ gitbusybox/featureModel gitbusybox/header.h
+
+./run.sh de.fosd.typechef.busybox.CreateDimacs gitbusybox/featureModel gitbusybox/featureModel.dimacs
