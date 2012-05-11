@@ -54,8 +54,8 @@ object BusyboxLinker extends App {
 
     import BusyboxHelp._
 
-
-    val vm = FeatureExprFactory.default.featureModelFactory.create(getBusyboxVM())
+    val featureModel = getBusyboxVM()
+    val vm = FeatureExprFactory.default.featureModelFactory.create(featureModel)
 
     println("parsing")
 
@@ -116,7 +116,7 @@ object BusyboxLinker extends App {
 
     println("total composition time: " + (t2 - t1))
 
-    finalInterface = finalInterface.pack
+    finalInterface = finalInterface.andFM(featureModel).pack
 
     reader.writeInterface(finalInterface, new File("busyboxfinal.interface"))
     reader.debugInterface(finalInterface, new File("busyboxfinal.dbginterface"))
