@@ -31,7 +31,7 @@ object InterfaceDiff extends App {
             val a=toSet(aa)
             val b=toSet(bb)
 
-            for (imp <- a) {
+            for (imp <- a.toList.sortBy(_.name)) {
                 val bimp = b.filter(x => x.name == imp.name && x.ctype == imp.ctype)
                 if (bimp.isEmpty)
                     println("<< " + imp) //removed
