@@ -19,8 +19,6 @@ cat dbg.config | java -jar DBGFileChecker.jar
 grep FAIL gitbusybox/out > gitbusybox/outfail
 
 
-echo Finished nightly with `wc -l gitbusybox/outfail` | mail -s "busybox nightly" -a gitbusybox/outfail kaestner 
-
 #linker checks
 mv gitbusybox/busyboxfinal.interface gitbusybox/busyboxprev.interface
 mv gitbusybox/busyboxfinal.dbginterface gitbusybox/busyboxprev.dbginterface
