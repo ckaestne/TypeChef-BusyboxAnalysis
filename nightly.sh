@@ -1,12 +1,17 @@
 cd ~/TypeChef/busybox/gitbusybox
 git pull > gitstatus
-grep "Already up-to-date" gitstatus > /dev/null
-if [ $? == 0 ]; 
+if [ "$1" =  "--force" ]
 then
-	echo "No git updates. Quitting."
-	exit
-else
-	echo "Starting checking..."
+	echo Skipping git check.
+else 
+	grep "Already up-to-date" gitstatus > /dev/null
+	if [ $? == 0 ]; 
+	then
+		echo "No git updates. Quitting."
+		exit
+	else
+		echo "Starting checking..."
+	fi
 fi
 
 cd ..
