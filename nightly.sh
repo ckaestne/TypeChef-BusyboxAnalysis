@@ -31,5 +31,7 @@ mv gitbusybox/busyboxfinal.dbginterface gitbusybox/busyboxprev.dbginterface
 mv busyboxfinal.interface gitbusybox/busyboxfinal.interface
 mv busyboxfinal.dbginterface gitbusybox/busyboxfinal.dbginterface
 ./run.sh de.fosd.typechef.busybox.InterfaceDiff gitbusybox/busyboxprev.interface gitbusybox/busyboxfinal.interface > gitbusybox/interfacediff
+cp gitbusybox/interfacediff gitbusybox/interfacediff.txt
+cp gitbusybox/outfail gitbusybox/outfail.txt
 
-echo Finished nightly with `wc -l gitbusybox/outfail` and `wc -l gitbusybox/interfacediff` | mail -s "busybox nightly" -a gitbusybox/outfail -a gitbusybox/interfacediff kaestner
+echo Finished nightly with `wc -l gitbusybox/outfail` and `wc -l gitbusybox/interfacediff` | mail -s "busybox nightly" -a gitbusybox/outfail.txt -a gitbusybox/interfacediff.txt kaestner
