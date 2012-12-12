@@ -31,10 +31,6 @@ shift
 . setupOutPaths.sh.inc
 
 
-if [ ! -f "$outPreproc" ]; then
-  echo "==Preprocess source"
-  gcc -Wp,-P -U __weak $gccOpts -E "$inp" "$@" > "$outPreproc" || true
-fi
 
 # Beware: the embedded for loop requotes the passed argument. That's dark magic,
 # don't ever try to touch it. It simplifies your life as a user of this program
