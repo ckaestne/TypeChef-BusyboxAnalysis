@@ -39,3 +39,13 @@
 #define CONFIG_FEATURE_DEFAULT_PASSWD_ALGO "des"
 #define __USE_GNU
 #undef CONFIG_TC
+
+#ifdef CONFIG_FEATURE_PIDFILE
+  #define CONFIG_PID_FILE_PATH "/var/run"
+#endif
+
+#ifdef CONFIG_SHA3_SMALL_TR
+  #define CONFIG_SHA3_SMALL 0
+#else
+  #define CONFIG_SHA3_SMALL 1
+#endif
