@@ -15,8 +15,8 @@ import java.io.File
 object KConfigReader extends App {
 
     if (args.size < 1) {
-        println("expected three parameters\n" +
-            " - directory (which contains a Config.in file)\n - target file in which the feature model is stored\n - target file in which the generated header file is stored")
+        println("expected four parameters\n" +
+            " - directory (which contains a Config.in file)\n - target file in which the feature model is stored\n - target file in which the generated header file is stored\n - target file which will contain a list of all features")
         sys.exit();
     }
 
@@ -155,6 +155,10 @@ object KConfigReader extends App {
     if (args.size > 2) {
         val p = new java.io.PrintWriter(args(2))
         try {p.write(outHeader)} finally {p.close()}
+    }
+    if (args.size > 3) {
+        val p = new java.io.PrintWriter(args(2))
+        try { for (feature<-features) p.write(feature+"\n")} finally {p.close()}
     }
 
 

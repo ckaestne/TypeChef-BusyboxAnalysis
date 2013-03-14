@@ -1,6 +1,17 @@
+If you want to extract presence conditions for files from the
+latest version each get and compile KBuildMiner
+
+otherwise simply copy the pc.txt file to the ```gitbusybox``` directory
+and proceed with normal preparation.
+
+
+Using KBuildMiner
+
+install Maven (mvn)
+
 get KBuildMiner from 
 http://code.google.com/p/variability/source/browse/KBuildMiner/
 
-if you want to extract presence conditions
+run ```mvn package```
 
-build with maven
+the actual tool is invoked then from ```prepareGit.sh```
