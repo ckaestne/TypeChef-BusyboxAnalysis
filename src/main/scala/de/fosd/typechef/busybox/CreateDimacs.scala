@@ -10,27 +10,31 @@ import FeatureExprFactory.sat._
  */
 
 object CreateDimacs extends App {
-    if (args.length < 1) {println("expect input file as parameter");}
+    if (args.length < 2) {
+        println(
+            """
+              |Invalid parameters:
+              | --cnf or --equicnf (mandatory) selecting between CNF and Equisatisfiable CNF transformations
+              | input file (mandatory)
+              | output file (optional) default is fm.dimacs
+            """.stripMargin)
+    }
     else {
-        //test
-        val tmpExpr=createDefinedExternal("CONFIG_FEATURE_TELNETD_INETD_WAIT") implies createDefinedExternal("CONFIG_FEATURE_TELNETD_STANDALONE")
+        val isCNF = args(0) != "--equicnf"
 
-        val inputFilename = args(0)
+        val inputFilename = args(1)
         assert(new File(inputFilename).exists(), "File " + inputFilename + " does not exist")
         val fexpr = new FeatureExprParser(FeatureExprFactory.sat).parseFile(inputFilename).asInstanceOf[SATFeatureExpr]
 
 
-        val fm = SATFeatureModel.create(fexpr).asInstanceOf[SATFeatureModel]
+        val fm = SATFeatureModel.create(if (isCNF) fexpr else fexpr.toCnfEquiSat()).asInstanceOf[SATFeatureModel]
 
-        //test
-        assert(tmpExpr.isTautology(fm))
-
-        val outputFilename = if (args.length < 2) "fm.dimacs" else args(1)
+        val outputFilename = if (args.length < 3) "fm.dimacs" else args(2)
         val out = //new OutputStreamWriter())
             new FileWriter(outputFilename)
 
         for ((v, i) <- fm.variables)
-            out.write("c " + i + " " + v.drop(7) + "\n")
+            out.write("c " + i + " " + (if (v.startsWith("CONFIG_")) v.drop(7) else "$" + v) + "\n")
 
         out.write("p cnf " + fm.variables.size + " " + fm.clauses.size() + "\n")
 
@@ -41,18 +45,12 @@ object CreateDimacs extends App {
             while (vi.hasNext)
                 out.write(vi.next + " ")
             out.write("0\n")
-            i=i+1
+            i = i + 1
         }
 
         out.close()
 
         println("wrote .dimacs.")
-
-        println(fexpr)
-
-        val fm2=SATFeatureModel.createFromDimacsFile_2Var(outputFilename)
-        assert(tmpExpr.isTautology(fm2))
-
 
     }
 }
