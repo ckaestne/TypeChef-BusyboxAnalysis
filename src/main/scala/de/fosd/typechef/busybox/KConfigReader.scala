@@ -62,6 +62,9 @@ object KConfigReader extends App {
                 "   #define IF_" + flag + "(...)\n" +
                 "#endif\n\n"
 
+            if (flagDep.trim.startsWith("&&")) flagDep = flagDep.drop(2)
+            if (groupDep.trim.startsWith("&&")) groupDep = groupDep.drop(2)
+
             if (!flagDep.trim.isEmpty)
                 outFeatureModel += "defined(CONFIG_" + flag + ") => " + flagDep.replaceAll("\\w+", "defined(CONFIG_$0)") + "\n"
             if (!groupDep.trim.isEmpty)
@@ -90,7 +93,7 @@ object KConfigReader extends App {
         if (line.trim == "" || line.trim.startsWith("#") || line.trim.startsWith("comment") || line.trim.startsWith("mainmenu")) skip = true
 
         if (!skip && line.startsWith("config")) {
-            inChoiceHeader=false
+            inChoiceHeader = false
             processConfig()
 
             flag = line.drop(7).trim
@@ -115,14 +118,14 @@ object KConfigReader extends App {
         if (!skip && line.trim() == ("choice")) {
             processConfig
             choiceAlternatives = Nil
-            inChoiceHeader=true
+            inChoiceHeader = true
         }
 
         if (!skip && line.trim() == ("endchoice")) {
             processConfig
             processChoice
-            groupDep=""
-            inChoiceHeader=false
+            groupDep = ""
+            inChoiceHeader = false
         }
 
         if (!skip && !skipHelp && flag != "" && line.trim() == ("help"))
@@ -136,12 +139,22 @@ object KConfigReader extends App {
             //remove trailing comments
             if (v.indexOf('#') >= 0)
                 v = v.take(v.indexOf('#'))
-            if (flag != "" )
-                flagDep = v
+            if (flag != "")
+                flagDep = flagDep + "&&(" + v + ")"
             if (inChoiceHeader)
-                groupDep = v
+                groupDep = groupDep + "&&(" + v + ")"
         }
 
+        if (!skip && !skipHelp && line.trim().startsWith("select")) {
+            var v = line.trim.drop(7)
+            //remove trailing comments
+            if (v.indexOf('#') >= 0)
+                v = v.take(v.indexOf('#'))
+            if (flag != "")
+                flagDep = flagDep + "&&(" + v + ")"
+            if (inChoiceHeader)
+                groupDep = groupDep + "&&(" + v + ")"
+        }
 
     }
 
@@ -153,15 +166,27 @@ object KConfigReader extends App {
 
     if (args.size > 1) {
         val p = new java.io.PrintWriter(args(1))
-        try {p.write(outFeatureModel)} finally {p.close()}
+        try {
+            p.write(outFeatureModel)
+        } finally {
+            p.close()
+        }
     }
     if (args.size > 2) {
         val p = new java.io.PrintWriter(args(2))
-        try {p.write(outHeader)} finally {p.close()}
+        try {
+            p.write(outHeader)
+        } finally {
+            p.close()
+        }
     }
     if (args.size > 3) {
         val p = new java.io.PrintWriter(args(3))
-        try { for (feature<-features) p.write(feature+"\n")} finally {p.close()}
+        try {
+            for (feature <- features) p.write(feature + "\n")
+        } finally {
+            p.close()
+        }
     }
 
 
