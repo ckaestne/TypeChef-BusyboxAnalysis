@@ -35,4 +35,4 @@ cat gitbusybox/pc.txt | sed s/\\.c:.*// | grep -v libunarchive | grep -v "/tc$" 
 ./run.sh de.fosd.typechef.busybox.KConfigReader gitbusybox/ gitbusybox/featureModel gitbusybox/header.h gitbusybox/features
 
 # translate the feature model into a .dimacs file for faster processing
-./run.sh de.fosd.typechef.busybox.CreateDimacs gitbusybox/featureModel gitbusybox/featureModel.dimacs
+./run.sh de.fosd.typechef.busybox.CreateDimacs --cnf gitbusybox/featureModel gitbusybox/featureModel.dimacs

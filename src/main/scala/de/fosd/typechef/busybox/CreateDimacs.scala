@@ -10,7 +10,7 @@ import FeatureExprFactory.sat._
  */
 
 object CreateDimacs extends App {
-    if (args.length < 2) {
+    if (args.length < 3) {
         println(
             """
               |Invalid parameters:
