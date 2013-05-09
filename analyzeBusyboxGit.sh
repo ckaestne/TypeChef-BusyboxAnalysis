@@ -13,6 +13,7 @@ srcPath="gitbusybox"
 export partialPreprocFlags="-x CONFIG_ \
   --include gitbusybox/header.h \
   --include mheader.h \
+  --featureModelDimacs gitbusybox/featureModel.dimacs \
   -I $srcPath/include  \
   --debugInterface --writePI --recordTiming --parserstatistics --lexdebug \
   --interface"
