@@ -34,4 +34,4 @@ mv busyboxfinal.dbginterface gitbusybox/busyboxfinal.dbginterface
 cp gitbusybox/interfacediff gitbusybox/interfacediff.txt
 cp gitbusybox/outfail gitbusybox/outfail.txt
 
-echo Finished nightly with `wc -l gitbusybox/outfail` and `wc -l gitbusybox/interfacediff` | mail -s "busybox nightly" -a gitbusybox/outfail.txt -a gitbusybox/interfacediff.txt ckaestne
+echo Finished nightly with `wc -l gitbusybox/outfail` and `wc -l gitbusybox/interfacediff` | mail -s "busybox nightly" -a gitbusybox/outfail.txt -a gitbusybox/interfacediff.txt kaestner@cs.cmu.edu
