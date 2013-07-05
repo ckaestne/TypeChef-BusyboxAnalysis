@@ -13,6 +13,8 @@ object InterfaceDiff extends App {
 
     if (args.size != 2) {
         println("expecting two .interface files as parameter")
+    } else if (!new File(args(0)).exists()) {
+	println("no previous file exists")
     } else {
 
         val reader = new InterfaceWriter() {}
