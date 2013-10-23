@@ -11,12 +11,17 @@ filesToProcess() {
 flags="-U HAVE_LIBDMALLOC -DCONFIG_FIND -U CONFIG_FEATURE_WGET_LONG_OPTIONS -U ENABLE_NC_110_COMPAT -U CONFIG_EXTRA_COMPAT -D_GNU_SOURCE"
 srcPath="gitbusybox"
 export partialPreprocFlags="-x CONFIG_ \
+  --bdd \
   --include gitbusybox/header.h \
   --include mheader.h \
   --featureModelDimacs gitbusybox/featureModel.dimacs \
   -I $srcPath/include  \
-  --debugInterface --writePI --recordTiming --parserstatistics --lexdebug \
-  --interface"
+  --writePI --recordTiming --parserstatistics --lexdebug --errorXML \
+  -t --interface 
+  --serializeAST --reuseAST \
+  --dumpcfg"
+#  -Apointer-sign -Ainteger-overflow -Aimplicit-coercion \
+#  --conditionalControlFlow"
 echo $partialPreprocFlags
 ## Reset output
 filesToProcess|while read i; do

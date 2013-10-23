@@ -18,6 +18,7 @@ cd ..
 
 ./prepareGit.sh
 ./cleanBusyboxGit.sh
+./cleanBusyboxGitASTs.sh
 ./analyzeBusyboxGit.sh
 
 cat dbg.config | java -jar DBGFileChecker.jar
