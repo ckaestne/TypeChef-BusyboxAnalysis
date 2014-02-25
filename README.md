@@ -14,7 +14,7 @@ Run `sbt mkrun` to create a `run.sbt` file, which sets the required build paths.
 
 If you want to check other versions than 1.18.5 you need to download and build KBuildMiner (see README in that directory).
 
-Check the paths to your header files in the `redhat.properties` file. Currently, the configuration files point to a `systems` directory for header files. That directory is not part of this repository. If you want to use the exact same headers that we are using, download them here http://www.informatik.uni-marburg.de/~kaestner/tmp/includes-redhat.tar.bz2
+Check the paths to your header files in the `redhat.properties` file. Currently, the configuration files point to a `systems` directory for header files. That directory is not part of this repository. If you want to use the exact same headers that we are using, download them here http://www.cs.cmu.edu/~ckaestne/tmp/includes-redhat.tar.bz2
 
 
 
