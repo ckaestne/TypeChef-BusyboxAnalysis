@@ -8,7 +8,7 @@ It does not include Busybox itself, nor header files, nor the KBuildMiner projec
 
 Preparation
 -----------
-Get sbt and run it in this directory. Sbt will automatically get the last release of TypeChef (You might still want to build a recent development release of TypeChef from the git repo).
+Get sbt (tested with version 0.12.2) and run it in this directory. Sbt will automatically get the last release of TypeChef (You might still want to build a recent development release of TypeChef from the git repo).
 
 Run `sbt mkrun` to create a `run.sbt` file, which sets the required build paths.
 
