@@ -16,7 +16,7 @@ export partialPreprocFlags="-x CONFIG_ \
   --featureModelDimacs gitbusybox/featureModel.dimacs \
   -I $srcPath/include  \
   --debugInterface --writePI --recordTiming --parserstatistics --lexdebug \
-  --interface"
+  --dumpcfg --interface"
 echo $partialPreprocFlags
 ## Reset output
 filesToProcess|while read i; do
