@@ -12,7 +12,10 @@ sbt mkrun
 #http://code.google.com/p/variability/source/browse/KBuildMiner/
 #and Maven (mvn) to generate the list of presence conditions per files
 cd gitbusybox
+make defconfig
 make gen_build_files
+make include/config/MARKER
+make applets/applets.o
 cd ..
 
 #copy an old file pc in case KBuildMiner is not installed
