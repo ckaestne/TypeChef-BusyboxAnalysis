@@ -5,6 +5,24 @@ BUG_setfiles_globals_too_big
 BUG_sizeof_fd_set_is_strange
 BUG_xatou32_unimplemented
 
+#dynamic check, requires dead code analysis:
+check_errors_in_children
+sgi_get_num_sectors
+sepol_set_policydb_from_file
+sgi_get_num_sectors
+#pretty complicated dynamic check actually
+data_extract_to_command
+open_transformer
+unpack_Z_stream
+unpack_bz2_stream
+unpack_gz_stream
+unpack_lzma_stream
+unpack_xz_stream
+writeTarFile
+
+#unsupported __attribute__
+evaltreenr
+
 ## selinux.h:
 is_selinux_enabled
 is_selinux_mls_enabled
@@ -146,3 +164,41 @@ selinux_file_context_cmp
 selinux_file_context_verify
 selinux_lsetfilecon_default
 selinux_reset_config
+#selinux context.h
+context_new
+context_str
+context_free
+context_type_get
+context_range_get
+context_role_get
+context_user_get
+context_type_set
+context_range_set
+context_role_set
+context_user_set
+#selinux get_context.h
+get_ordered_context_list
+get_default_context
+query_user_context
+manual_user_enter_context
+# * <security/pam_appl.h>
+pam_start
+pam_end
+pam_authenticate
+pam_setcred
+pam_acct_mgmt
+pam_open_session
+pam_close_session
+pam_chauthtok
+# _pam_types.h
+pam_set_item
+pam_get_item
+pam_strerror
+pam_putenv
+pam_getenv
+pam_getenvlist
+#systems/redhat/usr/include/sepol/*.h
+sepol_check_context
+sepol_mls_contains
+sepol_mls_check
+sepol_set_policydb_from_file
