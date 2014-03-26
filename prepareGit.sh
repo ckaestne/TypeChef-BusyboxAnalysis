@@ -12,11 +12,16 @@ sbt mkrun
 #http://code.google.com/p/variability/source/browse/KBuildMiner/
 #and Maven (mvn) to generate the list of presence conditions per files
 cd gitbusybox
-make defconfig
+make allnoconfig
 make gen_build_files
 make include/config/MARKER
 make applets/applets.o
+#eliminate long list that's extremely expensive to parse
+> include/applets.h
 cd ..
+
+#use the standard blacklist
+#ln -s linkerblacklist gitbusybox/linkerblacklist
 
 #copy an old file pc in case KBuildMiner is not installed
 cp KBuildMiner/pc.txt gitbusybox/pc.txt
@@ -29,7 +34,7 @@ cd ..
 grep -v libunarchive gitbusybox/pc.txt | grep -v Unknown > gitbusybox/pc_clean.txt
 
 # extract a list of all relevant files
-cat gitbusybox/pc.txt | sed s/\\.c:.*// | grep -v libunarchive | grep -v "/tc$" | grep -v "appletlib" > gitbusybox/filelist
+cat gitbusybox/pc.txt | sed s/\\.c:.*// | grep -v libunarchive | grep -v "/tc$"  > gitbusybox/filelist
 
 # generate .pc files from the presence condition list
 ./run.sh de.fosd.typechef.busybox.ProcessFileList gitbusybox/pc_clean.txt gitbusybox/
