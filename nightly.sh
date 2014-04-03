@@ -21,8 +21,7 @@ cd ..
 ./cleanBusyboxGitASTs.sh
 ./analyzeBusyboxGit.sh
 
-cat dbg.config | java -jar DBGFileChecker.jar
-grep FAIL gitbusybox/out > gitbusybox/outfail
+./run.sh de.fosd.typechef.busybox.SummarizeResult gitbusybox/ gitbusybox/filelist | grep FAIL > gitbusybox/outfail
 
 
 #linker checks
