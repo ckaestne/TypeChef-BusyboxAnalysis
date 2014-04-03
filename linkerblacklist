@@ -202,3 +202,6 @@ sepol_check_context
 sepol_mls_contains
 sepol_mls_check
 sepol_set_policydb_from_file
+
+#nested function
+alloc_action
