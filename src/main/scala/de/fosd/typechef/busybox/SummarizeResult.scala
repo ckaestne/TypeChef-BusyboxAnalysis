@@ -20,7 +20,7 @@ object SummarizeResult extends App {
         } else {
             val lines=io.Source.fromFile(file).getLines().toList
 
-            if (!lines.exists(_=="True\tlexer succeeded"))
+            if (!lines.exists(_=="True\tlexing succeeded"))
                 println("FAIL[lexing failed] "+line)
             else
             if (!lines.exists(_=="True\tparsing succeeded"))
