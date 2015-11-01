@@ -1,8 +1,9 @@
 package de.fosd.typechef.busybox
 
-import java.io.File
+import java.io.{FileNotFoundException, File}
 import de.fosd.typechef.typesystem.linker._
 import de.fosd.typechef.featureexpr.{FeatureExprFactory, FeatureExpr, FeatureExprParser}
+
 
 
 trait Config {
@@ -21,7 +22,7 @@ object BB_1_18_5 extends Config {
 object BB_Git extends Config {
     def getFeatureModelFile: String      =getSourceDir + "featureModel"
     def getFileListFile: String  =getSourceDir + "filelist"
-    def getSourceDir: String      ="S:\\ARCHIVE\\kos\\share\\TypeChef\\busybox\\gitbusybox\\"
+    def getSourceDir: String      ="gg/"
     def getInterfaceExtension=".interface"
 }
 
@@ -45,6 +46,7 @@ object BusyboxHelp {
     val path = config.getSourceDir
     val filesfile = config.getFileListFile
     val featuresfile = path + "features"
+    val blacklistfile = path + "linkerblacklist"
 
     var fileList = io.Source.fromFile(filesfile).getLines().toList
     val featureList = io.Source.fromFile(featuresfile).getLines().toList
@@ -57,13 +59,30 @@ object BusyboxLinker extends App {
     val featureModel = getBusyboxVM()
     val vm = FeatureExprFactory.default.featureModelFactory.create(featureModel)
 
+    val blacklist:Set[String] = try {
+        io.Source.fromFile(blacklistfile).getLines().map(_.trim).filter(!_.isEmpty).filter(!_.startsWith("#")).toSet
+    } catch {
+        case e:FileNotFoundException => Set()
+    }
+
+    def blacklistImports(interface: CInterface): CInterface = CInterface(
+        interface.featureModel, interface.importedFeatures, interface.declaredFeatures,
+        interface.imports.filterNot(blacklist contains _.name),
+        interface.exports
+    )
+
+    println("%d methods blacklisted".format(blacklist.size))
+
     println("parsing")
 
     val reader = new InterfaceWriter() {}
 
     println(fileList.size + " files")
+
+
+
     //    println(fileList.map(f => reader.readInterface(new File(path+f + ".c.interface"))))
-    var interfaces = fileList.map(f => reader.readInterface(new File(path + f + config.getInterfaceExtension))).map(SystemLinker.linkStdLib(_))
+    var interfaces = fileList.map(f => reader.readInterface(new File(path + f + config.getInterfaceExtension))).map(i=>blacklistImports(SystemLinker.linkStdLib(i)))
 
     println("composing")
 
@@ -116,7 +135,8 @@ object BusyboxLinker extends App {
 
     println("total composition time: " + (t2 - t1))
 
-    finalInterface = finalInterface.andFM(featureModel).pack
+    finalInterface = finalInterface.andFM(featureModel).pack(LINK_RELAXED)
+
 
     reader.writeInterface(finalInterface, new File("busyboxfinal.interface"))
     reader.debugInterface(finalInterface, new File("busyboxfinal.dbginterface"))
@@ -146,7 +166,7 @@ object TmpLinkerStuff extends App {
     i = SystemLinker.conditionalLinkSelinux(i, d("CONFIG_SELINUX"))
     i = SystemLinker.conditionalLinkPam(i, d("CONFIG_PAM"))
     i = i.andFM(fm)
-    i = i.pack
+    i = i.pack()
 
     println("packed")
 
@@ -162,7 +182,6 @@ object TmpLinkerStuff extends App {
                     "gpt_list_table", "nfsmount", "make_bad_inode2", "make_root_inode2" //if (0) dead-code detection
                     , "evaltreenr" //weired __attribute__
                 ) contains sym)
-    false
 
     for (imp <- i.imports.sortBy(_.name))
         if (imp.fexpr.isSatisfiable() && !excludeSymbol(imp.name))

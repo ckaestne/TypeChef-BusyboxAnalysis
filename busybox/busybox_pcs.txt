@@ -1,523 +1,523 @@
-applets/applets.c: [TRUE]
-archival/ar.c: ((AR == "y") || (AR == "m"))
-archival/bbunzip.c: (((((((((LZOP == "y") || (LZOP == "m")) || ((GZIP == "y") || (GZIP == "m"))) || ((BZIP2 == "y") || (BZIP2 == "m"))) || ((UNXZ == "y") || (UNXZ == "m"))) || ((UNLZMA == "y") || (UNLZMA == "m"))) || ((BUNZIP2 == "y") || (BUNZIP2 == "m"))) || ((GUNZIP == "y") || (GUNZIP == "m"))) || ((UNCOMPRESS == "y") || (UNCOMPRESS == "m")))
-archival/bzip2.c: ((BZIP2 == "y") || (BZIP2 == "m"))
-archival/cpio.c: ((CPIO == "y") || (CPIO == "m"))
-archival/dpkg.c: ((DPKG == "y") || (DPKG == "m"))
-archival/dpkg_deb.c: ((DPKG_DEB == "y") || (DPKG_DEB == "m"))
-archival/gzip.c: ((GZIP == "y") || (GZIP == "m"))
-archival/libarchive/data_extract_to_command.c: ((FEATURE_TAR_TO_COMMAND == "y") || (FEATURE_TAR_TO_COMMAND == "m"))
-archival/libarchive/decompress_bunzip2.c: (((((BUNZIP2 == "y") || (BUNZIP2 == "m")) || ((FEATURE_SEAMLESS_BZ2 == "y") || (FEATURE_SEAMLESS_BZ2 == "m"))) || ((FEATURE_COMPRESS_USAGE == "y") || (FEATURE_COMPRESS_USAGE == "m"))) || ((FEATURE_COMPRESS_BBCONFIG == "y") || (FEATURE_COMPRESS_BBCONFIG == "m")))
-archival/libarchive/decompress_uncompress.c: (((UNCOMPRESS == "y") || (UNCOMPRESS == "m")) || ((FEATURE_SEAMLESS_Z == "y") || (FEATURE_SEAMLESS_Z == "m")))
-archival/libarchive/decompress_unlzma.c: (((UNLZMA == "y") || (UNLZMA == "m")) || ((FEATURE_SEAMLESS_LZMA == "y") || (FEATURE_SEAMLESS_LZMA == "m")))
-archival/libarchive/decompress_unxz.c: (((UNXZ == "y") || (UNXZ == "m")) || ((FEATURE_SEAMLESS_XZ == "y") || (FEATURE_SEAMLESS_XZ == "m")))
-archival/libarchive/decompress_unzip.c: ((((((GUNZIP == "y") || (GUNZIP == "m")) || ((RPM2CPIO == "y") || (RPM2CPIO == "m"))) || ((RPM == "y") || (RPM == "m"))) || ((UNZIP == "y") || (UNZIP == "m"))) || ((FEATURE_SEAMLESS_GZ == "y") || (FEATURE_SEAMLESS_GZ == "m")))
-archival/libarchive/filter_accept_list_reassign.c: (((DPKG == "y") || (DPKG == "m")) || ((DPKG_DEB == "y") || (DPKG_DEB == "m")))
-archival/libarchive/get_header_ar.c: ((((((DPKG == "y") || (DPKG == "m")) || ((DPKG_DEB == "y") || (DPKG_DEB == "m"))) || ((AR == "y") || (AR == "m"))) || (((DPKG == "y") || (DPKG == "m")) || ((DPKG_DEB == "y") || (DPKG_DEB == "m")))) || ((AR == "y") || (AR == "m")))
-archival/libarchive/get_header_cpio.c: ((((CPIO == "y") || (CPIO == "m")) || ((RPM2CPIO == "y") || (RPM2CPIO == "m"))) || ((RPM == "y") || (RPM == "m")))
-archival/libarchive/get_header_tar.c: ((((((DPKG == "y") || (DPKG == "m")) || ((DPKG_DEB == "y") || (DPKG_DEB == "m"))) || ((TAR == "y") || (TAR == "m"))) || (((DPKG == "y") || (DPKG == "m")) || ((DPKG_DEB == "y") || (DPKG_DEB == "m")))) || ((TAR == "y") || (TAR == "m")))
-archival/libarchive/get_header_tar_bz2.c: ((FEATURE_SEAMLESS_BZ2 == "y") || (FEATURE_SEAMLESS_BZ2 == "m"))
-archival/libarchive/get_header_tar_gz.c: ((FEATURE_SEAMLESS_GZ == "y") || (FEATURE_SEAMLESS_GZ == "m"))
-archival/libarchive/get_header_tar_lzma.c: ((FEATURE_SEAMLESS_LZMA == "y") || (FEATURE_SEAMLESS_LZMA == "m"))
-archival/libarchive/lzo1x_1.c: ((LZOP == "y") || (LZOP == "m"))
-archival/libarchive/lzo1x_1o.c: ((LZOP == "y") || (LZOP == "m"))
-archival/libarchive/lzo1x_9x.c: ((LZOP_COMPR_HIGH == "y") || (LZOP_COMPR_HIGH == "m"))
-archival/libarchive/lzo1x_d.c: ((LZOP == "y") || (LZOP == "m"))
-archival/libarchive/open_transformer.c: (((((((RPM == "y") || (RPM == "m")) || ((FEATURE_SEAMLESS_Z == "y") || (FEATURE_SEAMLESS_Z == "m"))) || ((FEATURE_SEAMLESS_GZ == "y") || (FEATURE_SEAMLESS_GZ == "m"))) || ((FEATURE_SEAMLESS_BZ2 == "y") || (FEATURE_SEAMLESS_BZ2 == "m"))) || ((FEATURE_SEAMLESS_LZMA == "y") || (FEATURE_SEAMLESS_LZMA == "m"))) || ((FEATURE_SEAMLESS_XZ == "y") || (FEATURE_SEAMLESS_XZ == "m")))
-archival/libarchive/unpack_ar_archive.c: ((((((DPKG == "y") || (DPKG == "m")) || ((DPKG_DEB == "y") || (DPKG_DEB == "m"))) || ((AR == "y") || (AR == "m"))) || (((DPKG == "y") || (DPKG == "m")) || ((DPKG_DEB == "y") || (DPKG_DEB == "m")))) || ((AR == "y") || (AR == "m")))
-archival/libarchive/data_align.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/data_extract_all.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/data_extract_to_stdout.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/data_skip.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/filter_accept_all.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/filter_accept_list.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/filter_accept_reject_list.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/find_list_entry.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/header_list.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/header_skip.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/header_verbose_list.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/init_handle.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/seek_by_jump.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/libarchive/seek_by_read.c: (AR || (BUNZIP2 || (UNLZMA || (UNXZ || (CPIO || (DPKG || (DPKG_DEB || (GUNZIP || (RPM2CPIO || (RPM || (TAR || (UNCOMPRESS || (UNZIP || (FEATURE_SEAMLESS_Z || (FEATURE_SEAMLESS_GZ || (FEATURE_SEAMLESS_BZ2 || (FEATURE_SEAMLESS_LZMA || (FEATURE_SEAMLESS_XZ || (FEATURE_COMPRESS_USAGE || (FEATURE_COMPRESS_BBCONFIG || FEATURE_TAR_TO_COMMAND))))))))))))))))))))
-archival/lzop.c: ((LZOP == "y") || (LZOP == "m"))
-archival/rpm.c: ((RPM == "y") || (RPM == "m"))
-archival/rpm2cpio.c: ((RPM2CPIO == "y") || (RPM2CPIO == "m"))
-archival/tar.c: ((TAR == "y") || (TAR == "m"))
-archival/unzip.c: ((UNZIP == "y") || (UNZIP == "m"))
-console-tools/chvt.c: ((CHVT == "y") || (CHVT == "m"))
-console-tools/clear.c: ((CLEAR == "y") || (CLEAR == "m"))
-console-tools/deallocvt.c: ((DEALLOCVT == "y") || (DEALLOCVT == "m"))
-console-tools/dumpkmap.c: ((DUMPKMAP == "y") || (DUMPKMAP == "m"))
-console-tools/fgconsole.c: ((FGCONSOLE == "y") || (FGCONSOLE == "m"))
-console-tools/kbd_mode.c: ((KBD_MODE == "y") || (KBD_MODE == "m"))
-console-tools/loadfont.c: (((LOADFONT == "y") || (LOADFONT == "m")) || ((SETFONT == "y") || (SETFONT == "m")))
-console-tools/loadkmap.c: ((LOADKMAP == "y") || (LOADKMAP == "m"))
-console-tools/openvt.c: ((OPENVT == "y") || (OPENVT == "m"))
-console-tools/reset.c: ((RESET == "y") || (RESET == "m"))
-console-tools/resize.c: ((RESIZE == "y") || (RESIZE == "m"))
-console-tools/setconsole.c: ((SETCONSOLE == "y") || (SETCONSOLE == "m"))
-console-tools/setkeycodes.c: ((SETKEYCODES == "y") || (SETKEYCODES == "m"))
-console-tools/setlogcons.c: ((SETLOGCONS == "y") || (SETLOGCONS == "m"))
-console-tools/showkey.c: ((SHOWKEY == "y") || (SHOWKEY == "m"))
-coreutils/basename.c: ((BASENAME == "y") || (BASENAME == "m"))
-coreutils/cal.c: ((CAL == "y") || (CAL == "m"))
-coreutils/cat.c: (((((CAT == "y") || (CAT == "m")) || ((MORE == "y") || (MORE == "m"))) || ((LESS == "y") || (LESS == "m"))) || ((CRONTAB == "y") || (CRONTAB == "m")))
-coreutils/catv.c: ((CATV == "y") || (CATV == "m"))
-coreutils/chgrp.c: ((CHGRP == "y") || (CHGRP == "m"))
-coreutils/chmod.c: ((CHMOD == "y") || (CHMOD == "m"))
-coreutils/chown.c: (((((CHGRP == "y") || (CHGRP == "m")) || ((CHOWN == "y") || (CHOWN == "m"))) || ((ADDUSER == "y") || (ADDUSER == "m"))) || ((ADDGROUP == "y") || (ADDGROUP == "m")))
-coreutils/chroot.c: ((CHROOT == "y") || (CHROOT == "m"))
-coreutils/cksum.c: ((CKSUM == "y") || (CKSUM == "m"))
-coreutils/comm.c: ((COMM == "y") || (COMM == "m"))
-coreutils/cp.c: ((CP == "y") || (CP == "m"))
-coreutils/cut.c: ((CUT == "y") || (CUT == "m"))
-coreutils/date.c: ((DATE == "y") || (DATE == "m"))
-coreutils/dd.c: ((DD == "y") || (DD == "m"))
-coreutils/df.c: ((DF == "y") || (DF == "m"))
-coreutils/dirname.c: ((DIRNAME == "y") || (DIRNAME == "m"))
-coreutils/dos2unix.c: ((DOS2UNIX == "y") || (DOS2UNIX == "m"))
-coreutils/du.c: ((DU == "y") || (DU == "m"))
-coreutils/echo.c: ((((ECHO == "y") || (ECHO == "m")) || ((ASH == "y") || (ASH == "m"))) || ((HUSH == "y") || (HUSH == "m")))
-coreutils/env.c: ((ENV == "y") || (ENV == "m"))
-coreutils/expand.c: (((EXPAND == "y") || (EXPAND == "m")) || ((UNEXPAND == "y") || (UNEXPAND == "m")))
-coreutils/expr.c: ((EXPR == "y") || (EXPR == "m"))
-coreutils/false.c: ((FALSE == "y") || (FALSE == "m"))
-coreutils/fold.c: ((FOLD == "y") || (FOLD == "m"))
-coreutils/fsync.c: ((FSYNC == "y") || (FSYNC == "m"))
-coreutils/head.c: ((HEAD == "y") || (HEAD == "m"))
-coreutils/hostid.c: ((HOSTID == "y") || (HOSTID == "m"))
-coreutils/id.c: ((ID == "y") || (ID == "m"))
-coreutils/install.c: ((INSTALL == "y") || (INSTALL == "m"))
-coreutils/length.c: ((LENGTH == "y") || (LENGTH == "m"))
-coreutils/libcoreutils/cp_mv_stat.c: ((((INSTALL == "y") || (INSTALL == "m")) || ((CP == "y") || (CP == "m"))) || ((MV == "y") || (MV == "m")))
-coreutils/libcoreutils/getopt_mk_fifo_nod.c: (((MKFIFO == "y") || (MKFIFO == "m")) || ((MKNOD == "y") || (MKNOD == "m")))
-coreutils/ln.c: ((LN == "y") || (LN == "m"))
-coreutils/logname.c: ((LOGNAME == "y") || (LOGNAME == "m"))
-coreutils/ls.c: (((LS == "y") || (LS == "m")) || ((FTPD == "y") || (FTPD == "m")))
-coreutils/md5_sha1_sum.c: (((((MD5SUM == "y") || (MD5SUM == "m")) || ((SHA1SUM == "y") || (SHA1SUM == "m"))) || ((SHA256SUM == "y") || (SHA256SUM == "m"))) || ((SHA512SUM == "y") || (SHA512SUM == "m")))
-coreutils/mkdir.c: ((MKDIR == "y") || (MKDIR == "m"))
-coreutils/mkfifo.c: ((MKFIFO == "y") || (MKFIFO == "m"))
-coreutils/mknod.c: ((MKNOD == "y") || (MKNOD == "m"))
-coreutils/mv.c: ((MV == "y") || (MV == "m"))
-coreutils/nice.c: ((NICE == "y") || (NICE == "m"))
-coreutils/nohup.c: ((NOHUP == "y") || (NOHUP == "m"))
-coreutils/od.c: ((OD == "y") || (OD == "m"))
-coreutils/printenv.c: ((PRINTENV == "y") || (PRINTENV == "m"))
-coreutils/printf.c: (((PRINTF == "y") || (PRINTF == "m")) || ((ASH_BUILTIN_PRINTF == "y") || (ASH_BUILTIN_PRINTF == "m")))
-coreutils/pwd.c: ((PWD == "y") || (PWD == "m"))
-coreutils/readlink.c: ((READLINK == "y") || (READLINK == "m"))
-coreutils/realpath.c: ((REALPATH == "y") || (REALPATH == "m"))
-coreutils/rm.c: ((RM == "y") || (RM == "m"))
-coreutils/rmdir.c: ((RMDIR == "y") || (RMDIR == "m"))
-coreutils/seq.c: ((SEQ == "y") || (SEQ == "m"))
-coreutils/sleep.c: ((SLEEP == "y") || (SLEEP == "m"))
-coreutils/sort.c: ((SORT == "y") || (SORT == "m"))
-coreutils/split.c: ((SPLIT == "y") || (SPLIT == "m"))
-coreutils/stat.c: ((STAT == "y") || (STAT == "m"))
-coreutils/stty.c: ((STTY == "y") || (STTY == "m"))
-coreutils/sum.c: ((SUM == "y") || (SUM == "m"))
-coreutils/sync.c: ((SYNC == "y") || (SYNC == "m"))
-coreutils/tac.c: ((TAC == "y") || (TAC == "m"))
-coreutils/tail.c: ((TAIL == "y") || (TAIL == "m"))
-coreutils/tee.c: ((TEE == "y") || (TEE == "m"))
-coreutils/test.c: ((((TEST == "y") || (TEST == "m")) || ((ASH == "y") || (ASH == "m"))) || ((HUSH == "y") || (HUSH == "m")))
-coreutils/test_ptr_hack.c: ((((TEST == "y") || (TEST == "m")) || ((ASH == "y") || (ASH == "m"))) || ((HUSH == "y") || (HUSH == "m")))
-coreutils/touch.c: ((TOUCH == "y") || (TOUCH == "m"))
-coreutils/tr.c: ((TR == "y") || (TR == "m"))
-coreutils/true.c: ((TRUE == "y") || (TRUE == "m"))
-coreutils/tty.c: ((TTY == "y") || (TTY == "m"))
-coreutils/uname.c: ((UNAME == "y") || (UNAME == "m"))
-coreutils/uniq.c: ((UNIQ == "y") || (UNIQ == "m"))
-coreutils/usleep.c: ((USLEEP == "y") || (USLEEP == "m"))
-coreutils/uudecode.c: (((BASE64 == "y") || (BASE64 == "m")) || ((UUDECODE == "y") || (UUDECODE == "m")))
-coreutils/uuencode.c: ((UUENCODE == "y") || (UUENCODE == "m"))
-coreutils/wc.c: ((WC == "y") || (WC == "m"))
-coreutils/who.c: ((WHO == "y") || (WHO == "m"))
-coreutils/whoami.c: ((WHOAMI == "y") || (WHOAMI == "m"))
-coreutils/yes.c: ((YES == "y") || (YES == "m"))
-debianutils/mktemp.c: ((MKTEMP == "y") || (MKTEMP == "m"))
-debianutils/pipe_progress.c: ((PIPE_PROGRESS == "y") || (PIPE_PROGRESS == "m"))
-debianutils/run_parts.c: ((RUN_PARTS == "y") || (RUN_PARTS == "m"))
-debianutils/start_stop_daemon.c: ((START_STOP_DAEMON == "y") || (START_STOP_DAEMON == "m"))
-debianutils/which.c: ((WHICH == "y") || (WHICH == "m"))
-e2fsprogs/chattr.c: ((CHATTR == "y") || (CHATTR == "m"))
-e2fsprogs/e2fs_lib.c: (((CHATTR == "y") || (CHATTR == "m")) || ((LSATTR == "y") || (LSATTR == "m")))
-e2fsprogs/fsck.c: ((FSCK == "y") || (FSCK == "m"))
-e2fsprogs/lsattr.c: ((LSATTR == "y") || (LSATTR == "m"))
-e2fsprogs/tune2fs.c: ((TUNE2FS == "y") || (TUNE2FS == "m"))
-editors/awk.c: ((AWK == "y") || (AWK == "m"))
-editors/cmp.c: ((CMP == "y") || (CMP == "m"))
-editors/diff.c: ((DIFF == "y") || (DIFF == "m"))
-editors/ed.c: ((ED == "y") || (ED == "m"))
-editors/patch.c: ((PATCH == "y") || (PATCH == "m"))
-editors/sed.c: ((SED == "y") || (SED == "m"))
-editors/vi.c: ((VI == "y") || (VI == "m"))
-findutils/find.c: ((FIND == "y") || (FIND == "m"))
-findutils/grep.c: ((GREP == "y") || (GREP == "m"))
-findutils/xargs.c: ((XARGS == "y") || (XARGS == "m"))
-init/bootchartd.c: ((BOOTCHARTD == "y") || (BOOTCHARTD == "m"))
-init/halt.c: ((HALT == "y") || (HALT == "m"))
-init/init.c: ((INIT == "y") || (INIT == "m"))
-init/mesg.c: ((MESG == "y") || (MESG == "m"))
-libbb/appletlib.c: [TRUE]
-libbb/ask_confirmation.c: [TRUE]
-libbb/bb_askpass.c: [TRUE]
-libbb/bb_basename.c: [TRUE]
-libbb/bb_bswap_64.c: [TRUE]
-libbb/bb_do_delay.c: [TRUE]
-libbb/bb_pwd.c: [TRUE]
-libbb/bb_qsort.c: [TRUE]
-libbb/bb_strtonum.c: [TRUE]
-libbb/change_identity.c: [TRUE]
-libbb/chomp.c: [TRUE]
-libbb/compare_string_array.c: [TRUE]
-libbb/concat_path_file.c: [TRUE]
-libbb/concat_subpath_file.c: [TRUE]
-libbb/copy_file.c: [TRUE]
-libbb/copyfd.c: [TRUE]
-libbb/correct_password.c: ((((VLOCK == "y") || (VLOCK == "m")) || ((SU == "y") || (SU == "m"))) || ((LOGIN == "y") || (LOGIN == "m")))
-libbb/crc32.c: [TRUE]
-libbb/create_icmp6_socket.c: [TRUE]
-libbb/create_icmp_socket.c: [TRUE]
-libbb/default_error_retval.c: [TRUE]
-libbb/device_open.c: [TRUE]
-libbb/die_if_bad_username.c: ((FEATURE_CHECK_NAMES == "y") || (FEATURE_CHECK_NAMES == "m"))
-libbb/dump.c: [TRUE]
-libbb/execable.c: [TRUE]
-libbb/fclose_nonstdin.c: [TRUE]
-libbb/fflush_stdout_and_exit.c: [TRUE]
-libbb/fgets_str.c: [TRUE]
-libbb/find_mount_point.c: (((((((DF == "y") || (DF == "m")) || ((MKFS_MINIX == "y") || (MKFS_MINIX == "m"))) || ((MKFS_EXT2 == "y") || (MKFS_EXT2 == "m"))) || ((MKFS_REISER == "y") || (MKFS_REISER == "m"))) || ((FSCK_MINIX == "y") || (FSCK_MINIX == "m"))) || ((MOUNT == "y") || (MOUNT == "m")))
-libbb/find_pid_by_name.c: [TRUE]
-libbb/find_root_device.c: [TRUE]
-libbb/full_write.c: [TRUE]
-libbb/get_console.c: [TRUE]
-libbb/get_cpu_count.c: ((((IOSTAT == "y") || (IOSTAT == "m")) || ((MPSTAT == "y") || (MPSTAT == "m"))) || ((POWERTOP == "y") || (POWERTOP == "m")))
-libbb/get_last_path_component.c: [TRUE]
-libbb/get_line_from_file.c: [TRUE]
-libbb/get_volsize.c: [TRUE]
-libbb/getopt32.c: [TRUE]
-libbb/getpty.c: [TRUE]
-libbb/hash_md5_sha.c: [TRUE]
-libbb/herror_msg.c: [TRUE]
-libbb/human_readable.c: [TRUE]
-libbb/inet_common.c: [TRUE]
-libbb/info_msg.c: [TRUE]
-libbb/inode_hash.c: [TRUE]
-libbb/isdirectory.c: [TRUE]
-libbb/kernel_version.c: [TRUE]
-libbb/last_char_is.c: [TRUE]
-libbb/lineedit.c: [TRUE]
-libbb/lineedit_ptr_hack.c: [TRUE]
-libbb/llist.c: [TRUE]
-libbb/login.c: [TRUE]
-libbb/loop.c: (((LOSETUP == "y") || (LOSETUP == "m")) || ((FEATURE_MOUNT_LOOP == "y") || (FEATURE_MOUNT_LOOP == "m")))
-libbb/make_directory.c: [TRUE]
-libbb/makedev.c: [TRUE]
-libbb/match_fstype.c: [TRUE]
-libbb/messages.c: [TRUE]
-libbb/mode_string.c: [TRUE]
-libbb/mtab.c: ((FEATURE_MTAB_SUPPORT == "y") || (FEATURE_MTAB_SUPPORT == "m"))
-libbb/obscure.c: [TRUE]
-libbb/parse_config.c: [TRUE]
-libbb/parse_mode.c: [TRUE]
-libbb/perror_msg.c: [TRUE]
-libbb/perror_nomsg.c: [TRUE]
-libbb/perror_nomsg_and_die.c: [TRUE]
-libbb/pidfile.c: [TRUE]
-libbb/platform.c: [TRUE]
-libbb/print_flags.c: [TRUE]
-libbb/printable.c: [TRUE]
-libbb/printable_string.c: [TRUE]
-libbb/process_escape_sequence.c: [TRUE]
-libbb/procps.c: [TRUE]
-libbb/progress.c: [TRUE]
-libbb/ptr_to_globals.c: [TRUE]
-libbb/pw_encrypt.c: (((((((((PASSWD == "y") || (PASSWD == "m")) || ((CHPASSWD == "y") || (CHPASSWD == "m"))) || ((CRYPTPW == "y") || (CRYPTPW == "m"))) || ((SULOGIN == "y") || (SULOGIN == "m"))) || ((VLOCK == "y") || (VLOCK == "m"))) || ((SU == "y") || (SU == "m"))) || ((LOGIN == "y") || (LOGIN == "m"))) || ((FEATURE_HTTPD_AUTH_MD5 == "y") || (FEATURE_HTTPD_AUTH_MD5 == "m")))
-libbb/read.c: [TRUE]
-libbb/read_key.c: [TRUE]
-libbb/read_printf.c: [TRUE]
-libbb/recursive_action.c: [TRUE]
-libbb/remove_file.c: [TRUE]
-libbb/rtc.c: (((HWCLOCK == "y") || (HWCLOCK == "m")) || ((RTCWAKE == "y") || (RTCWAKE == "m")))
-libbb/run_shell.c: [TRUE]
-libbb/safe_gethostname.c: [TRUE]
-libbb/safe_poll.c: [TRUE]
-libbb/safe_strncpy.c: [TRUE]
-libbb/safe_write.c: [TRUE]
-libbb/selinux_common.c: ((SELINUX == "y") || (SELINUX == "m"))
-libbb/setup_environment.c: [TRUE]
-libbb/signals.c: [TRUE]
-libbb/simplify_path.c: [TRUE]
-libbb/single_argv.c: [TRUE]
-libbb/skip_whitespace.c: [TRUE]
-libbb/speed_table.c: [TRUE]
-libbb/str_tolower.c: [TRUE]
-libbb/strrstr.c: [TRUE]
-libbb/time.c: [TRUE]
-libbb/trim.c: [TRUE]
-libbb/u_signal_names.c: [TRUE]
-libbb/udp_io.c: [TRUE]
-libbb/unicode.c: ((UNICODE_SUPPORT == "y") || (UNICODE_SUPPORT == "m"))
-libbb/update_passwd.c: (((((((ADDGROUP == "y") || (ADDGROUP == "m")) || ((ADDUSER == "y") || (ADDUSER == "m"))) || ((DELGROUP == "y") || (DELGROUP == "m"))) || ((DELUSER == "y") || (DELUSER == "m"))) || ((PASSWD == "y") || (PASSWD == "m"))) || ((CHPASSWD == "y") || (CHPASSWD == "m")))
-libbb/utmp.c: ((FEATURE_UTMP == "y") || (FEATURE_UTMP == "m"))
-libbb/uuencode.c: [TRUE]
-libbb/vdprintf.c: [TRUE]
-libbb/verror_msg.c: [TRUE]
-libbb/vfork_daemon_rexec.c: [TRUE]
-libbb/warn_ignoring_args.c: [TRUE]
-libbb/wfopen.c: [TRUE]
-libbb/wfopen_input.c: [TRUE]
-libbb/write.c: [TRUE]
-libbb/xatonum.c: [TRUE]
-libbb/xconnect.c: [TRUE]
-libbb/xfunc_die.c: [TRUE]
-libbb/xfuncs.c: [TRUE]
-libbb/xfuncs_printf.c: [TRUE]
-libbb/xgetcwd.c: [TRUE]
-libbb/xgethostbyname.c: [TRUE]
-libbb/xreadlink.c: [TRUE]
-libbb/xrealloc_vector.c: [TRUE]
-libbb/xregcomp.c: (((((((((((AWK == "y") || (AWK == "m")) || ((SED == "y") || (SED == "m"))) || ((GREP == "y") || (GREP == "m"))) || ((EXPR == "y") || (EXPR == "m"))) || ((MDEV == "y") || (MDEV == "m"))) || ((LESS == "y") || (LESS == "m"))) || ((PGREP == "y") || (PGREP == "m"))) || ((PKILL == "y") || (PKILL == "m"))) || ((DEVFSD == "y") || (DEVFSD == "m"))) || ((FEATURE_FIND_REGEX == "y") || (FEATURE_FIND_REGEX == "m")))
-libpwdgrp/pwd_grp.c: ((USE_BB_PWD_GRP == "y") || (USE_BB_PWD_GRP == "m"))
-libpwdgrp/uidgid_get.c: [TRUE]
-loginutils/add-remove-shell.c: (((ADD_SHELL == "y") || (ADD_SHELL == "m")) || ((REMOVE_SHELL == "y") || (REMOVE_SHELL == "m")))
-loginutils/addgroup.c: ((ADDGROUP == "y") || (ADDGROUP == "m"))
-loginutils/adduser.c: ((ADDUSER == "y") || (ADDUSER == "m"))
-loginutils/chpasswd.c: ((CHPASSWD == "y") || (CHPASSWD == "m"))
-loginutils/cryptpw.c: ((CRYPTPW == "y") || (CRYPTPW == "m"))
-loginutils/deluser.c: (((DELUSER == "y") || (DELUSER == "m")) || ((DELGROUP == "y") || (DELGROUP == "m")))
-loginutils/getty.c: ((GETTY == "y") || (GETTY == "m"))
-loginutils/login.c: ((LOGIN == "y") || (LOGIN == "m"))
-loginutils/passwd.c: ((PASSWD == "y") || (PASSWD == "m"))
-loginutils/su.c: ((SU == "y") || (SU == "m"))
-loginutils/sulogin.c: ((SULOGIN == "y") || (SULOGIN == "m"))
-loginutils/vlock.c: ((VLOCK == "y") || (VLOCK == "m"))
-mailutils/mail.c: (((((MAKEMIME == "y") || (MAKEMIME == "m")) || ((POPMAILDIR == "y") || (POPMAILDIR == "m"))) || ((REFORMIME == "y") || (REFORMIME == "m"))) || ((SENDMAIL == "y") || (SENDMAIL == "m")))
-mailutils/mime.c: (((MAKEMIME == "y") || (MAKEMIME == "m")) || ((REFORMIME == "y") || (REFORMIME == "m")))
-mailutils/popmaildir.c: ((POPMAILDIR == "y") || (POPMAILDIR == "m"))
-mailutils/sendmail.c: ((SENDMAIL == "y") || (SENDMAIL == "m"))
-miscutils/adjtimex.c: ((ADJTIMEX == "y") || (ADJTIMEX == "m"))
-miscutils/bbconfig.c: ((BBCONFIG == "y") || (BBCONFIG == "m"))
-miscutils/beep.c: ((BEEP == "y") || (BEEP == "m"))
-miscutils/chat.c: ((CHAT == "y") || (CHAT == "m"))
-miscutils/chrt.c: ((CHRT == "y") || (CHRT == "m"))
-miscutils/conspy.c: ((CONSPY == "y") || (CONSPY == "m"))
-miscutils/crond.c: ((CROND == "y") || (CROND == "m"))
-miscutils/crontab.c: ((CRONTAB == "y") || (CRONTAB == "m"))
-miscutils/dc.c: ((DC == "y") || (DC == "m"))
-miscutils/devfsd.c: ((DEVFSD == "y") || (DEVFSD == "m"))
-miscutils/devmem.c: ((DEVMEM == "y") || (DEVMEM == "m"))
-miscutils/eject.c: ((EJECT == "y") || (EJECT == "m"))
-miscutils/fbsplash.c: ((FBSPLASH == "y") || (FBSPLASH == "m"))
-miscutils/flash_eraseall.c: ((FLASH_ERASEALL == "y") || (FLASH_ERASEALL == "m"))
-miscutils/flash_lock_unlock.c: (((FLASH_LOCK == "y") || (FLASH_LOCK == "m")) || ((FLASH_UNLOCK == "y") || (FLASH_UNLOCK == "m")))
-miscutils/flashcp.c: ((FLASHCP == "y") || (FLASHCP == "m"))
-miscutils/hdparm.c: ((HDPARM == "y") || (HDPARM == "m"))
-miscutils/inotifyd.c: ((INOTIFYD == "y") || (INOTIFYD == "m"))
-miscutils/ionice.c: ((IONICE == "y") || (IONICE == "m"))
-miscutils/last.c: ((FEATURE_LAST_SMALL == "y") || (FEATURE_LAST_SMALL == "m"))
-miscutils/last_fancy.c: ((FEATURE_LAST_FANCY == "y") || (FEATURE_LAST_FANCY == "m"))
-miscutils/less.c: ((LESS == "y") || (LESS == "m"))
-miscutils/makedevs.c: ((MAKEDEVS == "y") || (MAKEDEVS == "m"))
-miscutils/man.c: ((MAN == "y") || (MAN == "m"))
-miscutils/microcom.c: ((MICROCOM == "y") || (MICROCOM == "m"))
-miscutils/mountpoint.c: ((MOUNTPOINT == "y") || (MOUNTPOINT == "m"))
-miscutils/mt.c: ((MT == "y") || (MT == "m"))
-miscutils/nandwrite.c: (((NANDWRITE == "y") || (NANDWRITE == "m")) || ((NANDDUMP == "y") || (NANDDUMP == "m")))
-miscutils/raidautorun.c: ((RAIDAUTORUN == "y") || (RAIDAUTORUN == "m"))
-miscutils/readahead.c: ((READAHEAD == "y") || (READAHEAD == "m"))
-miscutils/rfkill.c: ((RFKILL == "y") || (RFKILL == "m"))
-miscutils/runlevel.c: ((RUNLEVEL == "y") || (RUNLEVEL == "m"))
-miscutils/rx.c: ((RX == "y") || (RX == "m"))
-miscutils/setsid.c: ((SETSID == "y") || (SETSID == "m"))
-miscutils/strings.c: ((STRINGS == "y") || (STRINGS == "m"))
-miscutils/taskset.c: ((TASKSET == "y") || (TASKSET == "m"))
-miscutils/time.c: ((TIME == "y") || (TIME == "m"))
-miscutils/timeout.c: ((TIMEOUT == "y") || (TIMEOUT == "m"))
-miscutils/ttysize.c: ((TTYSIZE == "y") || (TTYSIZE == "m"))
-miscutils/ubi_attach_detach.c: (((UBIATTACH == "y") || (UBIATTACH == "m")) || ((UBIDETACH == "y") || (UBIDETACH == "m")))
-miscutils/volname.c: ((VOLNAME == "y") || (VOLNAME == "m"))
-miscutils/wall.c: ((WALL == "y") || (WALL == "m"))
-miscutils/watchdog.c: ((WATCHDOG == "y") || (WATCHDOG == "m"))
-modutils/depmod.c: ((DEPMOD == "y") || (DEPMOD == "m"))
-modutils/insmod.c: ((INSMOD == "y") || (INSMOD == "m"))
-modutils/lsmod.c: ((LSMOD == "y") || (LSMOD == "m"))
-modutils/modinfo.c: ((MODINFO == "y") || (MODINFO == "m"))
-modutils/modprobe-small.c: ((MODPROBE_SMALL == "y") || (MODPROBE_SMALL == "m"))
-modutils/modprobe.c: ((MODPROBE == "y") || (MODPROBE == "m"))
-modutils/modutils-24.c: ((FEATURE_2_4_MODULES == "y") || (FEATURE_2_4_MODULES == "m"))
-modutils/modutils.c: (((((((MODINFO == "y") || (MODINFO == "m")) || ((DEPMOD == "y") || (DEPMOD == "m"))) || ((INSMOD == "y") || (INSMOD == "m"))) || ((LSMOD == "y") || (LSMOD == "m"))) || ((MODPROBE == "y") || (MODPROBE == "m"))) || ((RMMOD == "y") || (RMMOD == "m")))
-modutils/rmmod.c: ((RMMOD == "y") || (RMMOD == "m"))
-networking/arp.c: ((ARP == "y") || (ARP == "m"))
-networking/arping.c: ((ARPING == "y") || (ARPING == "m"))
-networking/brctl.c: ((BRCTL == "y") || (BRCTL == "m"))
-networking/dnsd.c: ((DNSD == "y") || (DNSD == "m"))
-networking/ether-wake.c: ((ETHER_WAKE == "y") || (ETHER_WAKE == "m"))
-networking/ftpd.c: ((FTPD == "y") || (FTPD == "m"))
-networking/ftpgetput.c: (((FTPGET == "y") || (FTPGET == "m")) || ((FTPPUT == "y") || (FTPPUT == "m")))
-networking/hostname.c: ((HOSTNAME == "y") || (HOSTNAME == "m"))
-networking/httpd.c: ((HTTPD == "y") || (HTTPD == "m"))
-networking/ifconfig.c: ((IFCONFIG == "y") || (IFCONFIG == "m"))
-networking/ifenslave.c: ((IFENSLAVE == "y") || (IFENSLAVE == "m"))
-networking/ifplugd.c: ((IFPLUGD == "y") || (IFPLUGD == "m"))
-networking/ifupdown.c: ((IFUPDOWN == "y") || (IFUPDOWN == "m"))
-networking/inetd.c: ((INETD == "y") || (INETD == "m"))
-networking/interface.c: ((((ARP == "y") || (ARP == "m")) || ((IFCONFIG == "y") || (IFCONFIG == "m"))) || ((IFENSLAVE == "y") || (IFENSLAVE == "m")))
-networking/ip.c: ((IP == "y") || (IP == "m"))
-networking/ipcalc.c: ((IPCALC == "y") || (IPCALC == "m"))
-networking/isrv.c: ((FAKEIDENTD == "y") || (FAKEIDENTD == "m"))
-networking/isrv_identd.c: ((FAKEIDENTD == "y") || (FAKEIDENTD == "m"))
-networking/libiproute/ip_parse_common_args.c: (((((((IP == "y") || (IP == "m")) || ((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m"))) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m"))) || ((FEATURE_IP_ROUTE == "y") || (FEATURE_IP_ROUTE == "m"))) || ((FEATURE_IP_TUNNEL == "y") || (FEATURE_IP_TUNNEL == "m"))) || ((FEATURE_IP_RULE == "y") || (FEATURE_IP_RULE == "m")))
-networking/libiproute/ipaddress.c: (((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m")) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m")))
-networking/libiproute/iplink.c: ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m"))
-networking/libiproute/iproute.c: ((FEATURE_IP_ROUTE == "y") || (FEATURE_IP_ROUTE == "m"))
-networking/libiproute/iprule.c: ((FEATURE_IP_RULE == "y") || (FEATURE_IP_RULE == "m"))
-networking/libiproute/iptunnel.c: ((FEATURE_IP_TUNNEL == "y") || (FEATURE_IP_TUNNEL == "m"))
-networking/libiproute/libnetlink.c: (((((IP == "y") || (IP == "m")) || ((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m"))) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m"))) || ((FEATURE_IP_ROUTE == "y") || (FEATURE_IP_ROUTE == "m")))
-networking/libiproute/ll_addr.c: ((((IP == "y") || (IP == "m")) || ((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m"))) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m")))
-networking/libiproute/ll_map.c: (((((IP == "y") || (IP == "m")) || ((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m"))) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m"))) || ((FEATURE_IP_ROUTE == "y") || (FEATURE_IP_ROUTE == "m")))
-networking/libiproute/ll_proto.c: ((IP == "y") || (IP == "m"))
-networking/libiproute/ll_types.c: ((((IP == "y") || (IP == "m")) || ((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m"))) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m")))
-networking/libiproute/rt_names.c: (((((((IP == "y") || (IP == "m")) || ((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m"))) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m"))) || ((FEATURE_IP_ROUTE == "y") || (FEATURE_IP_ROUTE == "m"))) || ((FEATURE_IP_TUNNEL == "y") || (FEATURE_IP_TUNNEL == "m"))) || ((FEATURE_IP_RULE == "y") || (FEATURE_IP_RULE == "m")))
-networking/libiproute/rtm_map.c: (((IP == "y") || (IP == "m")) || ((FEATURE_IP_ROUTE == "y") || (FEATURE_IP_ROUTE == "m")))
-networking/libiproute/utils.c: ((((((((SLATTACH == "y") || (SLATTACH == "m")) || ((IP == "y") || (IP == "m"))) || ((FEATURE_IP_ADDRESS == "y") || (FEATURE_IP_ADDRESS == "m"))) || ((FEATURE_IP_LINK == "y") || (FEATURE_IP_LINK == "m"))) || ((FEATURE_IP_ROUTE == "y") || (FEATURE_IP_ROUTE == "m"))) || ((FEATURE_IP_TUNNEL == "y") || (FEATURE_IP_TUNNEL == "m"))) || ((FEATURE_IP_RULE == "y") || (FEATURE_IP_RULE == "m")))
-networking/nameif.c: ((NAMEIF == "y") || (NAMEIF == "m"))
-networking/nbd-client.c: ((NBDCLIENT == "y") || (NBDCLIENT == "m"))
-networking/nc.c: ((NC == "y") || (NC == "m"))
-networking/netstat.c: ((NETSTAT == "y") || (NETSTAT == "m"))
-networking/nslookup.c: ((NSLOOKUP == "y") || (NSLOOKUP == "m"))
-networking/ntpd.c: ((NTPD == "y") || (NTPD == "m"))
-networking/ping.c: (((PING == "y") || (PING == "m")) || ((PING6 == "y") || (PING6 == "m")))
-networking/pscan.c: ((PSCAN == "y") || (PSCAN == "m"))
-networking/route.c: ((ROUTE == "y") || (ROUTE == "m"))
-networking/slattach.c: ((SLATTACH == "y") || (SLATTACH == "m"))
-networking/tc.c: ((TC == "y") || (TC == "m"))
-networking/tcpudp.c: (((TCPSVD == "y") || (TCPSVD == "m")) || ((UDPSVD == "y") || (UDPSVD == "m")))
-networking/tcpudp_perhost.c: (((TCPSVD == "y") || (TCPSVD == "m")) || ((UDPSVD == "y") || (UDPSVD == "m")))
-networking/telnet.c: ((TELNET == "y") || (TELNET == "m"))
-networking/telnetd.c: ((TELNETD == "y") || (TELNETD == "m"))
-networking/tftp.c: (((TFTP == "y") || (TFTP == "m")) || ((TFTPD == "y") || (TFTPD == "m")))
-networking/traceroute.c: ((TRACEROUTE == "y") || (TRACEROUTE == "m"))
-networking/tunctl.c: ((TUNCTL == "y") || (TUNCTL == "m"))
-networking/udhcp/arpping.c: (((UDHCPD == "y") || (UDHCPD == "m")) || ((FEATURE_UDHCPC_ARPING == "y") || (FEATURE_UDHCPC_ARPING == "m")))
-networking/udhcp/common.c: (((UDHCPC == "y") || (UDHCPC == "m")) || ((UDHCPD == "y") || (UDHCPD == "m")))
-networking/udhcp/dhcpc.c: ((UDHCPC == "y") || (UDHCPC == "m"))
-networking/udhcp/dhcpd.c: ((UDHCPD == "y") || (UDHCPD == "m"))
-networking/udhcp/dhcprelay.c: ((DHCPRELAY == "y") || (DHCPRELAY == "m"))
-networking/udhcp/domain_codec.c: ((FEATURE_UDHCP_RFC3397 == "y") || (FEATURE_UDHCP_RFC3397 == "m"))
-networking/udhcp/dumpleases.c: ((DUMPLEASES == "y") || (DUMPLEASES == "m"))
-networking/udhcp/files.c: ((UDHCPD == "y") || (UDHCPD == "m"))
-networking/udhcp/leases.c: ((UDHCPD == "y") || (UDHCPD == "m"))
-networking/udhcp/packet.c: (((UDHCPC == "y") || (UDHCPC == "m")) || ((UDHCPD == "y") || (UDHCPD == "m")))
-networking/udhcp/signalpipe.c: (((UDHCPC == "y") || (UDHCPC == "m")) || ((UDHCPD == "y") || (UDHCPD == "m")))
-networking/udhcp/socket.c: (((UDHCPC == "y") || (UDHCPC == "m")) || ((UDHCPD == "y") || (UDHCPD == "m")))
-networking/udhcp/static_leases.c: ((UDHCPD == "y") || (UDHCPD == "m"))
-networking/vconfig.c: ((VCONFIG == "y") || (VCONFIG == "m"))
-networking/wget.c: ((WGET == "y") || (WGET == "m"))
-networking/zcip.c: ((ZCIP == "y") || (ZCIP == "m"))
-printutils/lpd.c: ((LPD == "y") || (LPD == "m"))
-printutils/lpr.c: (((LPR == "y") || (LPR == "m")) || ((LPQ == "y") || (LPQ == "m")))
-procps/free.c: ((FREE == "y") || (FREE == "m"))
-procps/fuser.c: ((FUSER == "y") || (FUSER == "m"))
-procps/iostat.c: ((IOSTAT == "y") || (IOSTAT == "m"))
-procps/kill.c: (((KILL == "y") || (KILL == "m")) || ((ASH == "y") || (ASH == "m")))
-procps/mpstat.c: ((MPSTAT == "y") || (MPSTAT == "m"))
-procps/nmeter.c: ((NMETER == "y") || (NMETER == "m"))
-procps/pgrep.c: (((PGREP == "y") || (PGREP == "m")) || ((PKILL == "y") || (PKILL == "m")))
-procps/pidof.c: ((PIDOF == "y") || (PIDOF == "m"))
-procps/pmap.c: ((PMAP == "y") || (PMAP == "m"))
-procps/powertop.c: ((POWERTOP == "y") || (POWERTOP == "m"))
-procps/ps.c: ((PS == "y") || (PS == "m"))
-procps/renice.c: ((RENICE == "y") || (RENICE == "m"))
-procps/smemcap.c: ((SMEMCAP == "y") || (SMEMCAP == "m"))
-procps/sysctl.c: ((BB_SYSCTL == "y") || (BB_SYSCTL == "m"))
-procps/top.c: ((TOP == "y") || (TOP == "m"))
-procps/uptime.c: ((UPTIME == "y") || (UPTIME == "m"))
-procps/watch.c: ((WATCH == "y") || (WATCH == "m"))
-runit/chpst.c: ((((((CHPST == "y") || (CHPST == "m")) || ((ENVDIR == "y") || (ENVDIR == "m"))) || ((ENVUIDGID == "y") || (ENVUIDGID == "m"))) || ((SETUIDGID == "y") || (SETUIDGID == "m"))) || ((SOFTLIMIT == "y") || (SOFTLIMIT == "m")))
-runit/runsv.c: ((RUNSV == "y") || (RUNSV == "m"))
-runit/runsvdir.c: ((RUNSVDIR == "y") || (RUNSVDIR == "m"))
-runit/sv.c: ((SV == "y") || (SV == "m"))
-runit/svlogd.c: ((SVLOGD == "y") || (SVLOGD == "m"))
-selinux/chcon.c: ((CHCON == "y") || (CHCON == "m"))
-selinux/getenforce.c: ((GETENFORCE == "y") || (GETENFORCE == "m"))
-selinux/getsebool.c: ((GETSEBOOL == "y") || (GETSEBOOL == "m"))
-selinux/load_policy.c: ((LOAD_POLICY == "y") || (LOAD_POLICY == "m"))
-selinux/matchpathcon.c: ((MATCHPATHCON == "y") || (MATCHPATHCON == "m"))
-selinux/runcon.c: ((RUNCON == "y") || (RUNCON == "m"))
-selinux/selinuxenabled.c: ((SELINUXENABLED == "y") || (SELINUXENABLED == "m"))
-selinux/sestatus.c: ((SESTATUS == "y") || (SESTATUS == "m"))
-selinux/setenforce.c: ((SETENFORCE == "y") || (SETENFORCE == "m"))
-selinux/setfiles.c: (((SETFILES == "y") || (SETFILES == "m")) || ((RESTORECON == "y") || (RESTORECON == "m")))
-selinux/setsebool.c: ((SETSEBOOL == "y") || (SETSEBOOL == "m"))
-shell/ash.c: ((ASH == "y") || (ASH == "m"))
-shell/ash_ptr_hack.c: ((ASH == "y") || (ASH == "m"))
-shell/cttyhack.c: ((CTTYHACK == "y") || (CTTYHACK == "m"))
-shell/hush.c: ((HUSH == "y") || (HUSH == "m"))
-shell/match.c: ((HUSH == "y") || (HUSH == "m"))
-shell/math.c: ((SH_MATH_SUPPORT == "y") || (SH_MATH_SUPPORT == "m"))
-shell/random.c: (((ASH_RANDOM_SUPPORT == "y") || (ASH_RANDOM_SUPPORT == "m")) || ((HUSH_RANDOM_SUPPORT == "y") || (HUSH_RANDOM_SUPPORT == "m")))
-shell/shell_common.c: (((ASH == "y") || (ASH == "m")) || ((HUSH == "y") || (HUSH == "m")))
-sysklogd/klogd.c: ((KLOGD == "y") || (KLOGD == "m"))
-sysklogd/logread.c: ((LOGREAD == "y") || (LOGREAD == "m"))
-sysklogd/syslogd_and_logger.c: (((LOGGER == "y") || (LOGGER == "m")) || ((SYSLOGD == "y") || (SYSLOGD == "m")))
-util-linux/acpid.c: ((ACPID == "y") || (ACPID == "m"))
-util-linux/blkid.c: ((BLKID == "y") || (BLKID == "m"))
-util-linux/blockdev.c: ((BLOCKDEV == "y") || (BLOCKDEV == "m"))
-util-linux/dmesg.c: ((DMESG == "y") || (DMESG == "m"))
-util-linux/fbset.c: ((FBSET == "y") || (FBSET == "m"))
-util-linux/fdformat.c: ((FDFORMAT == "y") || (FDFORMAT == "m"))
-util-linux/fdisk.c: ((FDISK == "y") || (FDISK == "m"))
-util-linux/findfs.c: ((FINDFS == "y") || (FINDFS == "m"))
-util-linux/flock.c: ((FLOCK == "y") || (FLOCK == "m"))
-util-linux/freeramdisk.c: (((FDFLUSH == "y") || (FDFLUSH == "m")) || ((FREERAMDISK == "y") || (FREERAMDISK == "m")))
-util-linux/fsck_minix.c: ((FSCK_MINIX == "y") || (FSCK_MINIX == "m"))
-util-linux/getopt.c: ((GETOPT == "y") || (GETOPT == "m"))
-util-linux/hexdump.c: ((HEXDUMP == "y") || (HEXDUMP == "m"))
-util-linux/hwclock.c: ((HWCLOCK == "y") || (HWCLOCK == "m"))
-util-linux/ipcrm.c: ((IPCRM == "y") || (IPCRM == "m"))
-util-linux/ipcs.c: ((IPCS == "y") || (IPCS == "m"))
-util-linux/losetup.c: ((LOSETUP == "y") || (LOSETUP == "m"))
-util-linux/lspci.c: ((LSPCI == "y") || (LSPCI == "m"))
-util-linux/lsusb.c: ((LSUSB == "y") || (LSUSB == "m"))
-util-linux/mdev.c: ((MDEV == "y") || (MDEV == "m"))
-util-linux/mkfs_ext2.c: ((MKFS_EXT2 == "y") || (MKFS_EXT2 == "m"))
-util-linux/mkfs_minix.c: ((MKFS_MINIX == "y") || (MKFS_MINIX == "m"))
-util-linux/mkfs_reiser.c: ((MKFS_REISER == "y") || (MKFS_REISER == "m"))
-util-linux/mkfs_vfat.c: ((MKFS_VFAT == "y") || (MKFS_VFAT == "m"))
-util-linux/mkswap.c: ((MKSWAP == "y") || (MKSWAP == "m"))
-util-linux/more.c: ((MORE == "y") || (MORE == "m"))
-util-linux/mount.c: ((MOUNT == "y") || (MOUNT == "m"))
-util-linux/pivot_root.c: ((PIVOT_ROOT == "y") || (PIVOT_ROOT == "m"))
-util-linux/rdate.c: ((RDATE == "y") || (RDATE == "m"))
-util-linux/rdev.c: ((RDEV == "y") || (RDEV == "m"))
-util-linux/readprofile.c: ((READPROFILE == "y") || (READPROFILE == "m"))
-util-linux/rev.c: ((REV == "y") || (REV == "m"))
-util-linux/rtcwake.c: ((RTCWAKE == "y") || (RTCWAKE == "m"))
-util-linux/script.c: ((SCRIPT == "y") || (SCRIPT == "m"))
-util-linux/scriptreplay.c: ((SCRIPTREPLAY == "y") || (SCRIPTREPLAY == "m"))
-util-linux/setarch.c: ((SETARCH == "y") || (SETARCH == "m"))
-util-linux/swaponoff.c: ((SWAPONOFF == "y") || (SWAPONOFF == "m"))
-util-linux/switch_root.c: ((SWITCH_ROOT == "y") || (SWITCH_ROOT == "m"))
-util-linux/umount.c: ((UMOUNT == "y") || (UMOUNT == "m"))
-util-linux/volume_id/btrfs.c: ((FEATURE_VOLUMEID_BTRFS == "y") || (FEATURE_VOLUMEID_BTRFS == "m"))
-util-linux/volume_id/cramfs.c: ((FEATURE_VOLUMEID_CRAMFS == "y") || (FEATURE_VOLUMEID_CRAMFS == "m"))
-util-linux/volume_id/ext.c: ((FEATURE_VOLUMEID_EXT == "y") || (FEATURE_VOLUMEID_EXT == "m"))
-util-linux/volume_id/fat.c: ((FEATURE_VOLUMEID_FAT == "y") || (FEATURE_VOLUMEID_FAT == "m"))
-util-linux/volume_id/get_devname.c: ((((BLKID == "y") || (BLKID == "m")) || ((FINDFS == "y") || (FINDFS == "m"))) || ((FEATURE_MOUNT_LABEL == "y") || (FEATURE_MOUNT_LABEL == "m")))
-util-linux/volume_id/hfs.c: ((FEATURE_VOLUMEID_HFS == "y") || (FEATURE_VOLUMEID_HFS == "m"))
-util-linux/volume_id/iso9660.c: ((FEATURE_VOLUMEID_ISO9660 == "y") || (FEATURE_VOLUMEID_ISO9660 == "m"))
-util-linux/volume_id/jfs.c: ((FEATURE_VOLUMEID_JFS == "y") || (FEATURE_VOLUMEID_JFS == "m"))
-util-linux/volume_id/linux_raid.c: ((FEATURE_VOLUMEID_LINUXRAID == "y") || (FEATURE_VOLUMEID_LINUXRAID == "m"))
-util-linux/volume_id/linux_swap.c: ((FEATURE_VOLUMEID_LINUXSWAP == "y") || (FEATURE_VOLUMEID_LINUXSWAP == "m"))
-util-linux/volume_id/luks.c: ((FEATURE_VOLUMEID_LUKS == "y") || (FEATURE_VOLUMEID_LUKS == "m"))
-util-linux/volume_id/ntfs.c: ((FEATURE_VOLUMEID_NTFS == "y") || (FEATURE_VOLUMEID_NTFS == "m"))
-util-linux/volume_id/ocfs2.c: ((FEATURE_VOLUMEID_OCFS2 == "y") || (FEATURE_VOLUMEID_OCFS2 == "m"))
-util-linux/volume_id/reiserfs.c: ((FEATURE_VOLUMEID_REISERFS == "y") || (FEATURE_VOLUMEID_REISERFS == "m"))
-util-linux/volume_id/romfs.c: ((FEATURE_VOLUMEID_ROMFS == "y") || (FEATURE_VOLUMEID_ROMFS == "m"))
-util-linux/volume_id/sysv.c: ((FEATURE_VOLUMEID_SYSV == "y") || (FEATURE_VOLUMEID_SYSV == "m"))
-util-linux/volume_id/udf.c: ((FEATURE_VOLUMEID_UDF == "y") || (FEATURE_VOLUMEID_UDF == "m"))
-util-linux/volume_id/util.c: ((VOLUMEID == "y") || (VOLUMEID == "m"))
-util-linux/volume_id/volume_id.c: ((VOLUMEID == "y") || (VOLUMEID == "m"))
-util-linux/volume_id/xfs.c: ((FEATURE_VOLUMEID_XFS == "y") || (FEATURE_VOLUMEID_XFS == "m"))
+applets/applets: True
+archival/ar: (def(CONFIG_AR_MODULE)|def(CONFIG_AR))
+archival/bbunzip: (def(CONFIG_UNLZMA_MODULE)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_BUNZIP2)|def(CONFIG_GUNZIP)|def(CONFIG_GZIP)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_BZIP2_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_LZOP)|def(CONFIG_UNXZ)|def(CONFIG_GZIP_MODULE)|def(CONFIG_BZIP2)|def(CONFIG_LZOP_MODULE)|def(CONFIG_UNCOMPRESS)|def(CONFIG_UNCOMPRESS_MODULE))
+archival/bzip2: (def(CONFIG_BZIP2_MODULE)|def(CONFIG_BZIP2))
+archival/cpio: (def(CONFIG_CPIO_MODULE)|def(CONFIG_CPIO))
+archival/dpkg: (def(CONFIG_DPKG_MODULE)|def(CONFIG_DPKG))
+archival/dpkg_deb: (def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_DPKG_DEB))
+archival/gzip: (def(CONFIG_GZIP_MODULE)|def(CONFIG_GZIP))
+archival/libarchive/data_extract_to_command: (def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND))
+archival/libarchive/decompress_bunzip2: (def(CONFIG_BUNZIP2)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2))
+archival/libarchive/decompress_uncompress: (def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z))
+archival/libarchive/decompress_unlzma: (def(CONFIG_UNLZMA_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA))
+archival/libarchive/decompress_unxz: (def(CONFIG_UNXZ_MODULE)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_XZ))
+archival/libarchive/decompress_unzip: (def(CONFIG_GUNZIP_MODULE)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_RPM)|def(CONFIG_GUNZIP)|def(CONFIG_RPM_MODULE)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_FEATURE_SEAMLESS_GZ))
+archival/libarchive/filter_accept_list_reassign: (def(CONFIG_DPKG_MODULE)|def(CONFIG_DPKG)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_DPKG_DEB))
+archival/libarchive/get_header_ar: (def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_AR)|def(CONFIG_DPKG)|def(CONFIG_DPKG_DEB)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/get_header_cpio: (def(CONFIG_CPIO)|def(CONFIG_CPIO_MODULE)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_RPM)|def(CONFIG_RPM2CPIO)|def(CONFIG_RPM_MODULE))
+archival/libarchive/get_header_tar: (def(CONFIG_TAR)|def(CONFIG_TAR_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_DPKG)|def(CONFIG_DPKG_DEB)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/get_header_tar_bz2: (def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2))
+archival/libarchive/get_header_tar_gz: (def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_GZ))
+archival/libarchive/get_header_tar_lzma: (def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA))
+archival/libarchive/lzo1x_1: (def(CONFIG_LZOP_MODULE)|def(CONFIG_LZOP))
+archival/libarchive/lzo1x_1o: (def(CONFIG_LZOP_MODULE)|def(CONFIG_LZOP))
+archival/libarchive/lzo1x_9x: (def(CONFIG_LZOP_COMPR_HIGH_MODULE)|def(CONFIG_LZOP_COMPR_HIGH))
+archival/libarchive/lzo1x_d: (def(CONFIG_LZOP_MODULE)|def(CONFIG_LZOP))
+archival/libarchive/open_transformer: (def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_RPM)|def(CONFIG_RPM_MODULE))
+archival/libarchive/unpack_ar_archive: (def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_AR)|def(CONFIG_DPKG)|def(CONFIG_DPKG_DEB)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/data_align: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/data_extract_all: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/data_extract_to_stdout: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/data_skip: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/filter_accept_all: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/filter_accept_list: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/filter_accept_reject_list: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/find_list_entry: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/header_list: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/header_skip: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/header_verbose_list: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/init_handle: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/seek_by_jump: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/libarchive/seek_by_read: (def(CONFIG_TAR)|def(CONFIG_FEATURE_SEAMLESS_LZMA)|def(CONFIG_CPIO)|def(CONFIG_UNZIP)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG)|def(CONFIG_UNXZ)|def(CONFIG_FEATURE_SEAMLESS_XZ)|def(CONFIG_TAR_MODULE)|def(CONFIG_UNXZ_MODULE)|def(CONFIG_DPKG_DEB_MODULE)|def(CONFIG_FEATURE_SEAMLESS_LZMA_MODULE)|def(CONFIG_GUNZIP)|def(CONFIG_FEATURE_SEAMLESS_GZ)|def(CONFIG_UNCOMPRESS)|def(CONFIG_FEATURE_SEAMLESS_XZ_MODULE)|def(CONFIG_AR)|def(CONFIG_UNLZMA_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE_MODULE)|def(CONFIG_FEATURE_COMPRESS_BBCONFIG_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND_MODULE)|def(CONFIG_FEATURE_COMPRESS_USAGE)|def(CONFIG_FEATURE_SEAMLESS_GZ_MODULE)|def(CONFIG_FEATURE_SEAMLESS_BZ2)|def(CONFIG_DPKG)|def(CONFIG_GUNZIP_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z_MODULE)|def(CONFIG_FEATURE_TAR_TO_COMMAND)|def(CONFIG_FEATURE_SEAMLESS_BZ2_MODULE)|def(CONFIG_BUNZIP2)|def(CONFIG_CPIO_MODULE)|def(CONFIG_UNLZMA)|def(CONFIG_DPKG_DEB)|def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_FEATURE_SEAMLESS_Z)|def(CONFIG_UNCOMPRESS_MODULE)|def(CONFIG_RPM)|def(CONFIG_BUNZIP2_MODULE)|def(CONFIG_RPM2CPIO)|def(CONFIG_UNZIP_MODULE)|def(CONFIG_RPM_MODULE)|def(CONFIG_AR_MODULE)|def(CONFIG_DPKG_MODULE))
+archival/lzop: (def(CONFIG_LZOP_MODULE)|def(CONFIG_LZOP))
+archival/rpm: (def(CONFIG_RPM_MODULE)|def(CONFIG_RPM))
+archival/rpm2cpio: (def(CONFIG_RPM2CPIO_MODULE)|def(CONFIG_RPM2CPIO))
+archival/tar: (def(CONFIG_TAR_MODULE)|def(CONFIG_TAR))
+archival/unzip: (def(CONFIG_UNZIP_MODULE)|def(CONFIG_UNZIP))
+console-tools/chvt: (def(CONFIG_CHVT_MODULE)|def(CONFIG_CHVT))
+console-tools/clear: (def(CONFIG_CLEAR_MODULE)|def(CONFIG_CLEAR))
+console-tools/deallocvt: (def(CONFIG_DEALLOCVT_MODULE)|def(CONFIG_DEALLOCVT))
+console-tools/dumpkmap: (def(CONFIG_DUMPKMAP_MODULE)|def(CONFIG_DUMPKMAP))
+console-tools/fgconsole: (def(CONFIG_FGCONSOLE_MODULE)|def(CONFIG_FGCONSOLE))
+console-tools/kbd_mode: (def(CONFIG_KBD_MODE_MODULE)|def(CONFIG_KBD_MODE))
+console-tools/loadfont: (def(CONFIG_LOADFONT_MODULE)|def(CONFIG_LOADFONT)|def(CONFIG_SETFONT_MODULE)|def(CONFIG_SETFONT))
+console-tools/loadkmap: (def(CONFIG_LOADKMAP_MODULE)|def(CONFIG_LOADKMAP))
+console-tools/openvt: (def(CONFIG_OPENVT_MODULE)|def(CONFIG_OPENVT))
+console-tools/reset: (def(CONFIG_RESET_MODULE)|def(CONFIG_RESET))
+console-tools/resize: (def(CONFIG_RESIZE_MODULE)|def(CONFIG_RESIZE))
+console-tools/setconsole: (def(CONFIG_SETCONSOLE_MODULE)|def(CONFIG_SETCONSOLE))
+console-tools/setkeycodes: (def(CONFIG_SETKEYCODES_MODULE)|def(CONFIG_SETKEYCODES))
+console-tools/setlogcons: (def(CONFIG_SETLOGCONS_MODULE)|def(CONFIG_SETLOGCONS))
+console-tools/showkey: (def(CONFIG_SHOWKEY_MODULE)|def(CONFIG_SHOWKEY))
+coreutils/basename: (def(CONFIG_BASENAME_MODULE)|def(CONFIG_BASENAME))
+coreutils/cal: (def(CONFIG_CAL_MODULE)|def(CONFIG_CAL))
+coreutils/cat: (def(CONFIG_CRONTAB_MODULE)|def(CONFIG_CAT)|def(CONFIG_MORE)|def(CONFIG_CRONTAB)|def(CONFIG_LESS_MODULE)|def(CONFIG_MORE_MODULE)|def(CONFIG_CAT_MODULE)|def(CONFIG_LESS))
+coreutils/catv: (def(CONFIG_CATV_MODULE)|def(CONFIG_CATV))
+coreutils/chgrp: (def(CONFIG_CHGRP_MODULE)|def(CONFIG_CHGRP))
+coreutils/chmod: (def(CONFIG_CHMOD_MODULE)|def(CONFIG_CHMOD))
+coreutils/chown: (def(CONFIG_ADDGROUP_MODULE)|def(CONFIG_CHGRP)|def(CONFIG_CHOWN_MODULE)|def(CONFIG_CHGRP_MODULE)|def(CONFIG_ADDGROUP)|def(CONFIG_CHOWN)|def(CONFIG_ADDUSER_MODULE)|def(CONFIG_ADDUSER))
+coreutils/chroot: (def(CONFIG_CHROOT_MODULE)|def(CONFIG_CHROOT))
+coreutils/cksum: (def(CONFIG_CKSUM_MODULE)|def(CONFIG_CKSUM))
+coreutils/comm: (def(CONFIG_COMM_MODULE)|def(CONFIG_COMM))
+coreutils/cp: (def(CONFIG_CP_MODULE)|def(CONFIG_CP))
+coreutils/cut: (def(CONFIG_CUT_MODULE)|def(CONFIG_CUT))
+coreutils/date: (def(CONFIG_DATE_MODULE)|def(CONFIG_DATE))
+coreutils/dd: (def(CONFIG_DD_MODULE)|def(CONFIG_DD))
+coreutils/df: (def(CONFIG_DF_MODULE)|def(CONFIG_DF))
+coreutils/dirname: (def(CONFIG_DIRNAME_MODULE)|def(CONFIG_DIRNAME))
+coreutils/dos2unix: (def(CONFIG_DOS2UNIX_MODULE)|def(CONFIG_DOS2UNIX))
+coreutils/du: (def(CONFIG_DU_MODULE)|def(CONFIG_DU))
+coreutils/echo: (def(CONFIG_HUSH_MODULE)|def(CONFIG_HUSH)|def(CONFIG_ASH_MODULE)|def(CONFIG_ECHO)|def(CONFIG_ASH)|def(CONFIG_ECHO_MODULE))
+coreutils/env: (def(CONFIG_ENV_MODULE)|def(CONFIG_ENV))
+coreutils/expand: (def(CONFIG_EXPAND_MODULE)|def(CONFIG_EXPAND)|def(CONFIG_UNEXPAND_MODULE)|def(CONFIG_UNEXPAND))
+coreutils/expr: (def(CONFIG_EXPR_MODULE)|def(CONFIG_EXPR))
+coreutils/false: (def(CONFIG_FALSE_MODULE)|def(CONFIG_FALSE))
+coreutils/fold: (def(CONFIG_FOLD_MODULE)|def(CONFIG_FOLD))
+coreutils/fsync: (def(CONFIG_FSYNC_MODULE)|def(CONFIG_FSYNC))
+coreutils/head: (def(CONFIG_HEAD_MODULE)|def(CONFIG_HEAD))
+coreutils/hostid: (def(CONFIG_HOSTID_MODULE)|def(CONFIG_HOSTID))
+coreutils/id: (def(CONFIG_ID_MODULE)|def(CONFIG_ID))
+coreutils/install: (def(CONFIG_INSTALL_MODULE)|def(CONFIG_INSTALL))
+coreutils/length: (def(CONFIG_LENGTH_MODULE)|def(CONFIG_LENGTH))
+coreutils/libcoreutils/cp_mv_stat: (def(CONFIG_CP_MODULE)|def(CONFIG_INSTALL_MODULE)|def(CONFIG_INSTALL)|def(CONFIG_MV)|def(CONFIG_CP)|def(CONFIG_MV_MODULE))
+coreutils/libcoreutils/getopt_mk_fifo_nod: (def(CONFIG_MKFIFO_MODULE)|def(CONFIG_MKFIFO)|def(CONFIG_MKNOD_MODULE)|def(CONFIG_MKNOD))
+coreutils/ln: (def(CONFIG_LN_MODULE)|def(CONFIG_LN))
+coreutils/logname: (def(CONFIG_LOGNAME_MODULE)|def(CONFIG_LOGNAME))
+coreutils/ls: (def(CONFIG_LS_MODULE)|def(CONFIG_LS)|def(CONFIG_FTPD_MODULE)|def(CONFIG_FTPD))
+coreutils/md5_sha1_sum: (def(CONFIG_SHA256SUM_MODULE)|def(CONFIG_SHA512SUM_MODULE)|def(CONFIG_SHA1SUM)|def(CONFIG_SHA256SUM)|def(CONFIG_MD5SUM)|def(CONFIG_MD5SUM_MODULE)|def(CONFIG_SHA512SUM)|def(CONFIG_SHA1SUM_MODULE))
+coreutils/mkdir: (def(CONFIG_MKDIR_MODULE)|def(CONFIG_MKDIR))
+coreutils/mkfifo: (def(CONFIG_MKFIFO_MODULE)|def(CONFIG_MKFIFO))
+coreutils/mknod: (def(CONFIG_MKNOD_MODULE)|def(CONFIG_MKNOD))
+coreutils/mv: (def(CONFIG_MV_MODULE)|def(CONFIG_MV))
+coreutils/nice: (def(CONFIG_NICE_MODULE)|def(CONFIG_NICE))
+coreutils/nohup: (def(CONFIG_NOHUP_MODULE)|def(CONFIG_NOHUP))
+coreutils/od: (def(CONFIG_OD_MODULE)|def(CONFIG_OD))
+coreutils/printenv: (def(CONFIG_PRINTENV_MODULE)|def(CONFIG_PRINTENV))
+coreutils/printf: (def(CONFIG_PRINTF_MODULE)|def(CONFIG_PRINTF)|def(CONFIG_ASH_BUILTIN_PRINTF_MODULE)|def(CONFIG_ASH_BUILTIN_PRINTF))
+coreutils/pwd: (def(CONFIG_PWD_MODULE)|def(CONFIG_PWD))
+coreutils/readlink: (def(CONFIG_READLINK_MODULE)|def(CONFIG_READLINK))
+coreutils/realpath: (def(CONFIG_REALPATH_MODULE)|def(CONFIG_REALPATH))
+coreutils/rm: (def(CONFIG_RM_MODULE)|def(CONFIG_RM))
+coreutils/rmdir: (def(CONFIG_RMDIR_MODULE)|def(CONFIG_RMDIR))
+coreutils/seq: (def(CONFIG_SEQ_MODULE)|def(CONFIG_SEQ))
+coreutils/sleep: (def(CONFIG_SLEEP_MODULE)|def(CONFIG_SLEEP))
+coreutils/sort: (def(CONFIG_SORT_MODULE)|def(CONFIG_SORT))
+coreutils/split: (def(CONFIG_SPLIT_MODULE)|def(CONFIG_SPLIT))
+coreutils/stat: (def(CONFIG_STAT_MODULE)|def(CONFIG_STAT))
+coreutils/stty: (def(CONFIG_STTY_MODULE)|def(CONFIG_STTY))
+coreutils/sum: (def(CONFIG_SUM_MODULE)|def(CONFIG_SUM))
+coreutils/sync: (def(CONFIG_SYNC_MODULE)|def(CONFIG_SYNC))
+coreutils/tac: (def(CONFIG_TAC_MODULE)|def(CONFIG_TAC))
+coreutils/tail: (def(CONFIG_TAIL_MODULE)|def(CONFIG_TAIL))
+coreutils/tee: (def(CONFIG_TEE_MODULE)|def(CONFIG_TEE))
+coreutils/test: (def(CONFIG_ASH)|def(CONFIG_TEST_MODULE)|def(CONFIG_HUSH_MODULE)|def(CONFIG_HUSH)|def(CONFIG_TEST)|def(CONFIG_ASH_MODULE))
+coreutils/test_ptr_hack: (def(CONFIG_ASH)|def(CONFIG_TEST_MODULE)|def(CONFIG_HUSH_MODULE)|def(CONFIG_HUSH)|def(CONFIG_TEST)|def(CONFIG_ASH_MODULE))
+coreutils/touch: (def(CONFIG_TOUCH_MODULE)|def(CONFIG_TOUCH))
+coreutils/tr: (def(CONFIG_TR_MODULE)|def(CONFIG_TR))
+coreutils/true: (def(CONFIG_TRUE_MODULE)|def(CONFIG_TRUE))
+coreutils/tty: (def(CONFIG_TTY_MODULE)|def(CONFIG_TTY))
+coreutils/uname: (def(CONFIG_UNAME_MODULE)|def(CONFIG_UNAME))
+coreutils/uniq: (def(CONFIG_UNIQ_MODULE)|def(CONFIG_UNIQ))
+coreutils/usleep: (def(CONFIG_USLEEP_MODULE)|def(CONFIG_USLEEP))
+coreutils/uudecode: (def(CONFIG_BASE64_MODULE)|def(CONFIG_BASE64)|def(CONFIG_UUDECODE_MODULE)|def(CONFIG_UUDECODE))
+coreutils/uuencode: (def(CONFIG_UUENCODE_MODULE)|def(CONFIG_UUENCODE))
+coreutils/wc: (def(CONFIG_WC_MODULE)|def(CONFIG_WC))
+coreutils/who: (def(CONFIG_WHO_MODULE)|def(CONFIG_WHO))
+coreutils/whoami: (def(CONFIG_WHOAMI_MODULE)|def(CONFIG_WHOAMI))
+coreutils/yes: (def(CONFIG_YES_MODULE)|def(CONFIG_YES))
+debianutils/mktemp: (def(CONFIG_MKTEMP_MODULE)|def(CONFIG_MKTEMP))
+debianutils/pipe_progress: (def(CONFIG_PIPE_PROGRESS_MODULE)|def(CONFIG_PIPE_PROGRESS))
+debianutils/run_parts: (def(CONFIG_RUN_PARTS_MODULE)|def(CONFIG_RUN_PARTS))
+debianutils/start_stop_daemon: (def(CONFIG_START_STOP_DAEMON_MODULE)|def(CONFIG_START_STOP_DAEMON))
+debianutils/which: (def(CONFIG_WHICH_MODULE)|def(CONFIG_WHICH))
+e2fsprogs/chattr: (def(CONFIG_CHATTR_MODULE)|def(CONFIG_CHATTR))
+e2fsprogs/e2fs_lib: (def(CONFIG_CHATTR_MODULE)|def(CONFIG_CHATTR)|def(CONFIG_LSATTR_MODULE)|def(CONFIG_LSATTR))
+e2fsprogs/fsck: (def(CONFIG_FSCK_MODULE)|def(CONFIG_FSCK))
+e2fsprogs/lsattr: (def(CONFIG_LSATTR_MODULE)|def(CONFIG_LSATTR))
+e2fsprogs/tune2fs: (def(CONFIG_TUNE2FS_MODULE)|def(CONFIG_TUNE2FS))
+editors/awk: (def(CONFIG_AWK_MODULE)|def(CONFIG_AWK))
+editors/cmp: (def(CONFIG_CMP_MODULE)|def(CONFIG_CMP))
+editors/diff: (def(CONFIG_DIFF_MODULE)|def(CONFIG_DIFF))
+editors/ed: (def(CONFIG_ED_MODULE)|def(CONFIG_ED))
+editors/patch: (def(CONFIG_PATCH_MODULE)|def(CONFIG_PATCH))
+editors/sed: (def(CONFIG_SED_MODULE)|def(CONFIG_SED))
+editors/vi: (def(CONFIG_VI_MODULE)|def(CONFIG_VI))
+findutils/find: (def(CONFIG_FIND_MODULE)|def(CONFIG_FIND))
+findutils/grep: (def(CONFIG_GREP_MODULE)|def(CONFIG_GREP))
+findutils/xargs: (def(CONFIG_XARGS_MODULE)|def(CONFIG_XARGS))
+init/bootchartd: (def(CONFIG_BOOTCHARTD_MODULE)|def(CONFIG_BOOTCHARTD))
+init/halt: (def(CONFIG_HALT_MODULE)|def(CONFIG_HALT))
+init/init: (def(CONFIG_INIT_MODULE)|def(CONFIG_INIT))
+init/mesg: (def(CONFIG_MESG_MODULE)|def(CONFIG_MESG))
+libbb/appletlib: True
+libbb/ask_confirmation: True
+libbb/bb_askpass: True
+libbb/bb_basename: True
+libbb/bb_bswap_64: True
+libbb/bb_do_delay: True
+libbb/bb_pwd: True
+libbb/bb_qsort: True
+libbb/bb_strtonum: True
+libbb/change_identity: True
+libbb/chomp: True
+libbb/compare_string_array: True
+libbb/concat_path_file: True
+libbb/concat_subpath_file: True
+libbb/copy_file: True
+libbb/copyfd: True
+libbb/correct_password: (def(CONFIG_SU_MODULE)|def(CONFIG_VLOCK)|def(CONFIG_SU)|def(CONFIG_LOGIN_MODULE)|def(CONFIG_LOGIN)|def(CONFIG_VLOCK_MODULE))
+libbb/crc32: True
+libbb/create_icmp6_socket: True
+libbb/create_icmp_socket: True
+libbb/default_error_retval: True
+libbb/device_open: True
+libbb/die_if_bad_username: (def(CONFIG_FEATURE_CHECK_NAMES_MODULE)|def(CONFIG_FEATURE_CHECK_NAMES))
+libbb/dump: True
+libbb/execable: True
+libbb/fclose_nonstdin: True
+libbb/fflush_stdout_and_exit: True
+libbb/fgets_str: True
+libbb/find_mount_point: (def(CONFIG_DF_MODULE)|def(CONFIG_MKFS_MINIX_MODULE)|def(CONFIG_MOUNT)|def(CONFIG_DF)|def(CONFIG_MKFS_EXT2)|def(CONFIG_MKFS_REISER_MODULE)|def(CONFIG_FSCK_MINIX_MODULE)|def(CONFIG_MKFS_MINIX)|def(CONFIG_MKFS_EXT2_MODULE)|def(CONFIG_MKFS_REISER)|def(CONFIG_FSCK_MINIX)|def(CONFIG_MOUNT_MODULE))
+libbb/find_pid_by_name: True
+libbb/find_root_device: True
+libbb/full_write: True
+libbb/get_console: True
+libbb/get_cpu_count: (def(CONFIG_IOSTAT_MODULE)|def(CONFIG_MPSTAT)|def(CONFIG_IOSTAT)|def(CONFIG_POWERTOP)|def(CONFIG_MPSTAT_MODULE)|def(CONFIG_POWERTOP_MODULE))
+libbb/get_last_path_component: True
+libbb/get_line_from_file: True
+libbb/get_volsize: True
+libbb/getopt32: True
+libbb/getpty: True
+libbb/hash_md5_sha: True
+libbb/herror_msg: True
+libbb/human_readable: True
+libbb/inet_common: True
+libbb/info_msg: True
+libbb/inode_hash: True
+libbb/isdirectory: True
+libbb/kernel_version: True
+libbb/last_char_is: True
+libbb/lineedit: True
+libbb/lineedit_ptr_hack: True
+libbb/llist: True
+libbb/login: True
+libbb/loop: (def(CONFIG_LOSETUP_MODULE)|def(CONFIG_LOSETUP)|def(CONFIG_FEATURE_MOUNT_LOOP_MODULE)|def(CONFIG_FEATURE_MOUNT_LOOP))
+libbb/make_directory: True
+libbb/makedev: True
+libbb/match_fstype: True
+libbb/messages: True
+libbb/mode_string: True
+libbb/mtab: (def(CONFIG_FEATURE_MTAB_SUPPORT_MODULE)|def(CONFIG_FEATURE_MTAB_SUPPORT))
+libbb/obscure: True
+libbb/parse_config: True
+libbb/parse_mode: True
+libbb/perror_msg: True
+libbb/perror_nomsg: True
+libbb/perror_nomsg_and_die: True
+libbb/pidfile: True
+libbb/platform: True
+libbb/print_flags: True
+libbb/printable: True
+libbb/printable_string: True
+libbb/process_escape_sequence: True
+libbb/procps: True
+libbb/progress: True
+libbb/ptr_to_globals: True
+libbb/pw_encrypt: (def(CONFIG_PASSWD)|def(CONFIG_SU_MODULE)|def(CONFIG_CHPASSWD)|def(CONFIG_VLOCK)|def(CONFIG_PASSWD_MODULE)|def(CONFIG_SU)|def(CONFIG_LOGIN_MODULE)|def(CONFIG_SULOGIN_MODULE)|def(CONFIG_CRYPTPW)|def(CONFIG_CRYPTPW_MODULE)|def(CONFIG_FEATURE_HTTPD_AUTH_MD5)|def(CONFIG_CHPASSWD_MODULE)|def(CONFIG_LOGIN)|def(CONFIG_VLOCK_MODULE)|def(CONFIG_SULOGIN)|def(CONFIG_FEATURE_HTTPD_AUTH_MD5_MODULE))
+libbb/read: True
+libbb/read_key: True
+libbb/read_printf: True
+libbb/recursive_action: True
+libbb/remove_file: True
+libbb/rtc: (def(CONFIG_HWCLOCK_MODULE)|def(CONFIG_HWCLOCK)|def(CONFIG_RTCWAKE_MODULE)|def(CONFIG_RTCWAKE))
+libbb/run_shell: True
+libbb/safe_gethostname: True
+libbb/safe_poll: True
+libbb/safe_strncpy: True
+libbb/safe_write: True
+libbb/selinux_common: (def(CONFIG_SELINUX_MODULE)|def(CONFIG_SELINUX))
+libbb/setup_environment: True
+libbb/signals: True
+libbb/simplify_path: True
+libbb/single_argv: True
+libbb/skip_whitespace: True
+libbb/speed_table: True
+libbb/str_tolower: True
+libbb/strrstr: True
+libbb/time: True
+libbb/trim: True
+libbb/u_signal_names: True
+libbb/udp_io: True
+libbb/unicode: (def(CONFIG_UNICODE_SUPPORT_MODULE)|def(CONFIG_UNICODE_SUPPORT))
+libbb/update_passwd: (def(CONFIG_ADDUSER_MODULE)|def(CONFIG_PASSWD)|def(CONFIG_CHPASSWD)|def(CONFIG_DELGROUP_MODULE)|def(CONFIG_DELGROUP)|def(CONFIG_PASSWD_MODULE)|def(CONFIG_ADDGROUP_MODULE)|def(CONFIG_DELUSER)|def(CONFIG_ADDGROUP)|def(CONFIG_CHPASSWD_MODULE)|def(CONFIG_ADDUSER)|def(CONFIG_DELUSER_MODULE))
+libbb/utmp: (def(CONFIG_FEATURE_UTMP_MODULE)|def(CONFIG_FEATURE_UTMP))
+libbb/uuencode: True
+libbb/vdprintf: True
+libbb/verror_msg: True
+libbb/vfork_daemon_rexec: True
+libbb/warn_ignoring_args: True
+libbb/wfopen: True
+libbb/wfopen_input: True
+libbb/write: True
+libbb/xatonum: True
+libbb/xconnect: True
+libbb/xfunc_die: True
+libbb/xfuncs: True
+libbb/xfuncs_printf: True
+libbb/xgetcwd: True
+libbb/xgethostbyname: True
+libbb/xreadlink: True
+libbb/xrealloc_vector: True
+libbb/xregcomp: (def(CONFIG_LESS)|def(CONFIG_DEVFSD)|def(CONFIG_MDEV_MODULE)|def(CONFIG_PGREP)|def(CONFIG_GREP)|def(CONFIG_MDEV)|def(CONFIG_PKILL_MODULE)|def(CONFIG_GREP_MODULE)|def(CONFIG_AWK_MODULE)|def(CONFIG_SED)|def(CONFIG_FEATURE_FIND_REGEX)|def(CONFIG_EXPR_MODULE)|def(CONFIG_AWK)|def(CONFIG_LESS_MODULE)|def(CONFIG_PGREP_MODULE)|def(CONFIG_DEVFSD_MODULE)|def(CONFIG_FEATURE_FIND_REGEX_MODULE)|def(CONFIG_PKILL)|def(CONFIG_EXPR)|def(CONFIG_SED_MODULE))
+libpwdgrp/pwd_grp: (def(CONFIG_USE_BB_PWD_GRP_MODULE)|def(CONFIG_USE_BB_PWD_GRP))
+libpwdgrp/uidgid_get: True
+loginutils/add-remove-shell: (def(CONFIG_ADD_SHELL_MODULE)|def(CONFIG_ADD_SHELL)|def(CONFIG_REMOVE_SHELL_MODULE)|def(CONFIG_REMOVE_SHELL))
+loginutils/addgroup: (def(CONFIG_ADDGROUP_MODULE)|def(CONFIG_ADDGROUP))
+loginutils/adduser: (def(CONFIG_ADDUSER_MODULE)|def(CONFIG_ADDUSER))
+loginutils/chpasswd: (def(CONFIG_CHPASSWD_MODULE)|def(CONFIG_CHPASSWD))
+loginutils/cryptpw: (def(CONFIG_CRYPTPW_MODULE)|def(CONFIG_CRYPTPW))
+loginutils/deluser: (def(CONFIG_DELUSER_MODULE)|def(CONFIG_DELUSER)|def(CONFIG_DELGROUP_MODULE)|def(CONFIG_DELGROUP))
+loginutils/getty: (def(CONFIG_GETTY_MODULE)|def(CONFIG_GETTY))
+loginutils/login: (def(CONFIG_LOGIN_MODULE)|def(CONFIG_LOGIN))
+loginutils/passwd: (def(CONFIG_PASSWD_MODULE)|def(CONFIG_PASSWD))
+loginutils/su: (def(CONFIG_SU_MODULE)|def(CONFIG_SU))
+loginutils/sulogin: (def(CONFIG_SULOGIN_MODULE)|def(CONFIG_SULOGIN))
+loginutils/vlock: (def(CONFIG_VLOCK_MODULE)|def(CONFIG_VLOCK))
+mailutils/mail: (def(CONFIG_POPMAILDIR)|def(CONFIG_REFORMIME_MODULE)|def(CONFIG_POPMAILDIR_MODULE)|def(CONFIG_SENDMAIL_MODULE)|def(CONFIG_MAKEMIME)|def(CONFIG_MAKEMIME_MODULE)|def(CONFIG_REFORMIME)|def(CONFIG_SENDMAIL))
+mailutils/mime: (def(CONFIG_MAKEMIME_MODULE)|def(CONFIG_MAKEMIME)|def(CONFIG_REFORMIME_MODULE)|def(CONFIG_REFORMIME))
+mailutils/popmaildir: (def(CONFIG_POPMAILDIR_MODULE)|def(CONFIG_POPMAILDIR))
+mailutils/sendmail: (def(CONFIG_SENDMAIL_MODULE)|def(CONFIG_SENDMAIL))
+miscutils/adjtimex: (def(CONFIG_ADJTIMEX_MODULE)|def(CONFIG_ADJTIMEX))
+miscutils/bbconfig: (def(CONFIG_BBCONFIG_MODULE)|def(CONFIG_BBCONFIG))
+miscutils/beep: (def(CONFIG_BEEP_MODULE)|def(CONFIG_BEEP))
+miscutils/chat: (def(CONFIG_CHAT_MODULE)|def(CONFIG_CHAT))
+miscutils/chrt: (def(CONFIG_CHRT_MODULE)|def(CONFIG_CHRT))
+miscutils/conspy: (def(CONFIG_CONSPY_MODULE)|def(CONFIG_CONSPY))
+miscutils/crond: (def(CONFIG_CROND_MODULE)|def(CONFIG_CROND))
+miscutils/crontab: (def(CONFIG_CRONTAB_MODULE)|def(CONFIG_CRONTAB))
+miscutils/dc: (def(CONFIG_DC_MODULE)|def(CONFIG_DC))
+miscutils/devfsd: (def(CONFIG_DEVFSD_MODULE)|def(CONFIG_DEVFSD))
+miscutils/devmem: (def(CONFIG_DEVMEM_MODULE)|def(CONFIG_DEVMEM))
+miscutils/eject: (def(CONFIG_EJECT_MODULE)|def(CONFIG_EJECT))
+miscutils/fbsplash: (def(CONFIG_FBSPLASH_MODULE)|def(CONFIG_FBSPLASH))
+miscutils/flash_eraseall: (def(CONFIG_FLASH_ERASEALL_MODULE)|def(CONFIG_FLASH_ERASEALL))
+miscutils/flash_lock_unlock: (def(CONFIG_FLASH_LOCK_MODULE)|def(CONFIG_FLASH_LOCK)|def(CONFIG_FLASH_UNLOCK_MODULE)|def(CONFIG_FLASH_UNLOCK))
+miscutils/flashcp: (def(CONFIG_FLASHCP_MODULE)|def(CONFIG_FLASHCP))
+miscutils/hdparm: (def(CONFIG_HDPARM_MODULE)|def(CONFIG_HDPARM))
+miscutils/inotifyd: (def(CONFIG_INOTIFYD_MODULE)|def(CONFIG_INOTIFYD))
+miscutils/ionice: (def(CONFIG_IONICE_MODULE)|def(CONFIG_IONICE))
+miscutils/last: (def(CONFIG_FEATURE_LAST_SMALL_MODULE)|def(CONFIG_FEATURE_LAST_SMALL))
+miscutils/last_fancy: (def(CONFIG_FEATURE_LAST_FANCY_MODULE)|def(CONFIG_FEATURE_LAST_FANCY))
+miscutils/less: (def(CONFIG_LESS_MODULE)|def(CONFIG_LESS))
+miscutils/makedevs: (def(CONFIG_MAKEDEVS_MODULE)|def(CONFIG_MAKEDEVS))
+miscutils/man: (def(CONFIG_MAN_MODULE)|def(CONFIG_MAN))
+miscutils/microcom: (def(CONFIG_MICROCOM_MODULE)|def(CONFIG_MICROCOM))
+miscutils/mountpoint: (def(CONFIG_MOUNTPOINT_MODULE)|def(CONFIG_MOUNTPOINT))
+miscutils/mt: (def(CONFIG_MT_MODULE)|def(CONFIG_MT))
+miscutils/nandwrite: (def(CONFIG_NANDWRITE_MODULE)|def(CONFIG_NANDWRITE)|def(CONFIG_NANDDUMP_MODULE)|def(CONFIG_NANDDUMP))
+miscutils/raidautorun: (def(CONFIG_RAIDAUTORUN_MODULE)|def(CONFIG_RAIDAUTORUN))
+miscutils/readahead: (def(CONFIG_READAHEAD_MODULE)|def(CONFIG_READAHEAD))
+miscutils/rfkill: (def(CONFIG_RFKILL_MODULE)|def(CONFIG_RFKILL))
+miscutils/runlevel: (def(CONFIG_RUNLEVEL_MODULE)|def(CONFIG_RUNLEVEL))
+miscutils/rx: (def(CONFIG_RX_MODULE)|def(CONFIG_RX))
+miscutils/setsid: (def(CONFIG_SETSID_MODULE)|def(CONFIG_SETSID))
+miscutils/strings: (def(CONFIG_STRINGS_MODULE)|def(CONFIG_STRINGS))
+miscutils/taskset: (def(CONFIG_TASKSET_MODULE)|def(CONFIG_TASKSET))
+miscutils/time: (def(CONFIG_TIME_MODULE)|def(CONFIG_TIME))
+miscutils/timeout: (def(CONFIG_TIMEOUT_MODULE)|def(CONFIG_TIMEOUT))
+miscutils/ttysize: (def(CONFIG_TTYSIZE_MODULE)|def(CONFIG_TTYSIZE))
+miscutils/ubi_attach_detach: (def(CONFIG_UBIATTACH_MODULE)|def(CONFIG_UBIATTACH)|def(CONFIG_UBIDETACH_MODULE)|def(CONFIG_UBIDETACH))
+miscutils/volname: (def(CONFIG_VOLNAME_MODULE)|def(CONFIG_VOLNAME))
+miscutils/wall: (def(CONFIG_WALL_MODULE)|def(CONFIG_WALL))
+miscutils/watchdog: (def(CONFIG_WATCHDOG_MODULE)|def(CONFIG_WATCHDOG))
+modutils/depmod: (def(CONFIG_DEPMOD_MODULE)|def(CONFIG_DEPMOD))
+modutils/insmod: (def(CONFIG_INSMOD_MODULE)|def(CONFIG_INSMOD))
+modutils/lsmod: (def(CONFIG_LSMOD_MODULE)|def(CONFIG_LSMOD))
+modutils/modinfo: (def(CONFIG_MODINFO_MODULE)|def(CONFIG_MODINFO))
+modutils/modprobe-small: (def(CONFIG_MODPROBE_SMALL_MODULE)|def(CONFIG_MODPROBE_SMALL))
+modutils/modprobe: (def(CONFIG_MODPROBE_MODULE)|def(CONFIG_MODPROBE))
+modutils/modutils-24: (def(CONFIG_FEATURE_2_4_MODULES_MODULE)|def(CONFIG_FEATURE_2_4_MODULES))
+modutils/modutils: (def(CONFIG_LSMOD_MODULE)|def(CONFIG_RMMOD_MODULE)|def(CONFIG_MODINFO)|def(CONFIG_MODINFO_MODULE)|def(CONFIG_RMMOD)|def(CONFIG_MODPROBE)|def(CONFIG_INSMOD_MODULE)|def(CONFIG_MODPROBE_MODULE)|def(CONFIG_INSMOD)|def(CONFIG_DEPMOD_MODULE)|def(CONFIG_DEPMOD)|def(CONFIG_LSMOD))
+modutils/rmmod: (def(CONFIG_RMMOD_MODULE)|def(CONFIG_RMMOD))
+networking/arp: (def(CONFIG_ARP_MODULE)|def(CONFIG_ARP))
+networking/arping: (def(CONFIG_ARPING_MODULE)|def(CONFIG_ARPING))
+networking/brctl: (def(CONFIG_BRCTL_MODULE)|def(CONFIG_BRCTL))
+networking/dnsd: (def(CONFIG_DNSD_MODULE)|def(CONFIG_DNSD))
+networking/ether-wake: (def(CONFIG_ETHER_WAKE_MODULE)|def(CONFIG_ETHER_WAKE))
+networking/ftpd: (def(CONFIG_FTPD_MODULE)|def(CONFIG_FTPD))
+networking/ftpgetput: (def(CONFIG_FTPGET_MODULE)|def(CONFIG_FTPGET)|def(CONFIG_FTPPUT_MODULE)|def(CONFIG_FTPPUT))
+networking/hostname: (def(CONFIG_HOSTNAME_MODULE)|def(CONFIG_HOSTNAME))
+networking/httpd: (def(CONFIG_HTTPD_MODULE)|def(CONFIG_HTTPD))
+networking/ifconfig: (def(CONFIG_IFCONFIG_MODULE)|def(CONFIG_IFCONFIG))
+networking/ifenslave: (def(CONFIG_IFENSLAVE_MODULE)|def(CONFIG_IFENSLAVE))
+networking/ifplugd: (def(CONFIG_IFPLUGD_MODULE)|def(CONFIG_IFPLUGD))
+networking/ifupdown: (def(CONFIG_IFUPDOWN_MODULE)|def(CONFIG_IFUPDOWN))
+networking/inetd: (def(CONFIG_INETD_MODULE)|def(CONFIG_INETD))
+networking/interface: (def(CONFIG_IFCONFIG)|def(CONFIG_IFCONFIG_MODULE)|def(CONFIG_ARP_MODULE)|def(CONFIG_ARP)|def(CONFIG_IFENSLAVE_MODULE)|def(CONFIG_IFENSLAVE))
+networking/ip: (def(CONFIG_IP_MODULE)|def(CONFIG_IP))
+networking/ipcalc: (def(CONFIG_IPCALC_MODULE)|def(CONFIG_IPCALC))
+networking/isrv: (def(CONFIG_FAKEIDENTD_MODULE)|def(CONFIG_FAKEIDENTD))
+networking/isrv_identd: (def(CONFIG_FAKEIDENTD_MODULE)|def(CONFIG_FAKEIDENTD))
+networking/libiproute/ip_parse_common_args: (def(CONFIG_IP)|def(CONFIG_IP_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_RULE)|def(CONFIG_FEATURE_IP_ROUTE)|def(CONFIG_FEATURE_IP_TUNNEL_MODULE)|def(CONFIG_FEATURE_IP_TUNNEL)|def(CONFIG_FEATURE_IP_ROUTE_MODULE)|def(CONFIG_FEATURE_IP_RULE_MODULE)|def(CONFIG_FEATURE_IP_LINK)|def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_LINK_MODULE))
+networking/libiproute/ipaddress: (def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_LINK_MODULE)|def(CONFIG_FEATURE_IP_LINK))
+networking/libiproute/iplink: (def(CONFIG_FEATURE_IP_LINK_MODULE)|def(CONFIG_FEATURE_IP_LINK))
+networking/libiproute/iproute: (def(CONFIG_FEATURE_IP_ROUTE_MODULE)|def(CONFIG_FEATURE_IP_ROUTE))
+networking/libiproute/iprule: (def(CONFIG_FEATURE_IP_RULE_MODULE)|def(CONFIG_FEATURE_IP_RULE))
+networking/libiproute/iptunnel: (def(CONFIG_FEATURE_IP_TUNNEL_MODULE)|def(CONFIG_FEATURE_IP_TUNNEL))
+networking/libiproute/libnetlink: (def(CONFIG_IP)|def(CONFIG_IP_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_ROUTE)|def(CONFIG_FEATURE_IP_ROUTE_MODULE)|def(CONFIG_FEATURE_IP_LINK)|def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_LINK_MODULE))
+networking/libiproute/ll_addr: (def(CONFIG_IP)|def(CONFIG_IP_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_LINK)|def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_LINK_MODULE))
+networking/libiproute/ll_map: (def(CONFIG_IP)|def(CONFIG_IP_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_ROUTE)|def(CONFIG_FEATURE_IP_ROUTE_MODULE)|def(CONFIG_FEATURE_IP_LINK)|def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_LINK_MODULE))
+networking/libiproute/ll_proto: (def(CONFIG_IP_MODULE)|def(CONFIG_IP))
+networking/libiproute/ll_types: (def(CONFIG_IP)|def(CONFIG_IP_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_LINK)|def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_LINK_MODULE))
+networking/libiproute/rt_names: (def(CONFIG_IP)|def(CONFIG_IP_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_RULE)|def(CONFIG_FEATURE_IP_ROUTE)|def(CONFIG_FEATURE_IP_TUNNEL_MODULE)|def(CONFIG_FEATURE_IP_TUNNEL)|def(CONFIG_FEATURE_IP_ROUTE_MODULE)|def(CONFIG_FEATURE_IP_RULE_MODULE)|def(CONFIG_FEATURE_IP_LINK)|def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_LINK_MODULE))
+networking/libiproute/rtm_map: (def(CONFIG_IP_MODULE)|def(CONFIG_IP)|def(CONFIG_FEATURE_IP_ROUTE_MODULE)|def(CONFIG_FEATURE_IP_ROUTE))
+networking/libiproute/utils: (def(CONFIG_IP)|def(CONFIG_IP_MODULE)|def(CONFIG_FEATURE_IP_ADDRESS)|def(CONFIG_FEATURE_IP_RULE)|def(CONFIG_SLATTACH_MODULE)|def(CONFIG_FEATURE_IP_ROUTE)|def(CONFIG_SLATTACH)|def(CONFIG_FEATURE_IP_TUNNEL_MODULE)|def(CONFIG_FEATURE_IP_TUNNEL)|def(CONFIG_FEATURE_IP_ROUTE_MODULE)|def(CONFIG_FEATURE_IP_RULE_MODULE)|def(CONFIG_FEATURE_IP_LINK)|def(CONFIG_FEATURE_IP_ADDRESS_MODULE)|def(CONFIG_FEATURE_IP_LINK_MODULE))
+networking/nameif: (def(CONFIG_NAMEIF_MODULE)|def(CONFIG_NAMEIF))
+networking/nbd-client: (def(CONFIG_NBDCLIENT_MODULE)|def(CONFIG_NBDCLIENT))
+networking/nc: (def(CONFIG_NC_MODULE)|def(CONFIG_NC))
+networking/netstat: (def(CONFIG_NETSTAT_MODULE)|def(CONFIG_NETSTAT))
+networking/nslookup: (def(CONFIG_NSLOOKUP_MODULE)|def(CONFIG_NSLOOKUP))
+networking/ntpd: (def(CONFIG_NTPD_MODULE)|def(CONFIG_NTPD))
+networking/ping: (def(CONFIG_PING_MODULE)|def(CONFIG_PING)|def(CONFIG_PING6_MODULE)|def(CONFIG_PING6))
+networking/pscan: (def(CONFIG_PSCAN_MODULE)|def(CONFIG_PSCAN))
+networking/route: (def(CONFIG_ROUTE_MODULE)|def(CONFIG_ROUTE))
+networking/slattach: (def(CONFIG_SLATTACH_MODULE)|def(CONFIG_SLATTACH))
+networking/tc: (def(CONFIG_TC_MODULE)|def(CONFIG_TC))
+networking/tcpudp: (def(CONFIG_TCPSVD_MODULE)|def(CONFIG_TCPSVD)|def(CONFIG_UDPSVD_MODULE)|def(CONFIG_UDPSVD))
+networking/tcpudp_perhost: (def(CONFIG_TCPSVD_MODULE)|def(CONFIG_TCPSVD)|def(CONFIG_UDPSVD_MODULE)|def(CONFIG_UDPSVD))
+networking/telnet: (def(CONFIG_TELNET_MODULE)|def(CONFIG_TELNET))
+networking/telnetd: (def(CONFIG_TELNETD_MODULE)|def(CONFIG_TELNETD))
+networking/tftp: (def(CONFIG_TFTP_MODULE)|def(CONFIG_TFTP)|def(CONFIG_TFTPD_MODULE)|def(CONFIG_TFTPD))
+networking/traceroute: (def(CONFIG_TRACEROUTE_MODULE)|def(CONFIG_TRACEROUTE))
+networking/tunctl: (def(CONFIG_TUNCTL_MODULE)|def(CONFIG_TUNCTL))
+networking/udhcp/arpping: (def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD)|def(CONFIG_FEATURE_UDHCPC_ARPING_MODULE)|def(CONFIG_FEATURE_UDHCPC_ARPING))
+networking/udhcp/common: (def(CONFIG_UDHCPC_MODULE)|def(CONFIG_UDHCPC)|def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/udhcp/dhcpc: (def(CONFIG_UDHCPC_MODULE)|def(CONFIG_UDHCPC))
+networking/udhcp/dhcpd: (def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/udhcp/dhcprelay: (def(CONFIG_DHCPRELAY_MODULE)|def(CONFIG_DHCPRELAY))
+networking/udhcp/domain_codec: (def(CONFIG_FEATURE_UDHCP_RFC3397_MODULE)|def(CONFIG_FEATURE_UDHCP_RFC3397))
+networking/udhcp/dumpleases: (def(CONFIG_DUMPLEASES_MODULE)|def(CONFIG_DUMPLEASES))
+networking/udhcp/files: (def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/udhcp/leases: (def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/udhcp/packet: (def(CONFIG_UDHCPC_MODULE)|def(CONFIG_UDHCPC)|def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/udhcp/signalpipe: (def(CONFIG_UDHCPC_MODULE)|def(CONFIG_UDHCPC)|def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/udhcp/socket: (def(CONFIG_UDHCPC_MODULE)|def(CONFIG_UDHCPC)|def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/udhcp/static_leases: (def(CONFIG_UDHCPD_MODULE)|def(CONFIG_UDHCPD))
+networking/vconfig: (def(CONFIG_VCONFIG_MODULE)|def(CONFIG_VCONFIG))
+networking/wget: (def(CONFIG_WGET_MODULE)|def(CONFIG_WGET))
+networking/zcip: (def(CONFIG_ZCIP_MODULE)|def(CONFIG_ZCIP))
+printutils/lpd: (def(CONFIG_LPD_MODULE)|def(CONFIG_LPD))
+printutils/lpr: (def(CONFIG_LPR_MODULE)|def(CONFIG_LPR)|def(CONFIG_LPQ_MODULE)|def(CONFIG_LPQ))
+procps/free: (def(CONFIG_FREE_MODULE)|def(CONFIG_FREE))
+procps/fuser: (def(CONFIG_FUSER_MODULE)|def(CONFIG_FUSER))
+procps/iostat: (def(CONFIG_IOSTAT_MODULE)|def(CONFIG_IOSTAT))
+procps/kill: (def(CONFIG_KILL_MODULE)|def(CONFIG_KILL)|def(CONFIG_ASH_MODULE)|def(CONFIG_ASH))
+procps/mpstat: (def(CONFIG_MPSTAT_MODULE)|def(CONFIG_MPSTAT))
+procps/nmeter: (def(CONFIG_NMETER_MODULE)|def(CONFIG_NMETER))
+procps/pgrep: (def(CONFIG_PGREP_MODULE)|def(CONFIG_PGREP)|def(CONFIG_PKILL_MODULE)|def(CONFIG_PKILL))
+procps/pidof: (def(CONFIG_PIDOF_MODULE)|def(CONFIG_PIDOF))
+procps/pmap: (def(CONFIG_PMAP_MODULE)|def(CONFIG_PMAP))
+procps/powertop: (def(CONFIG_POWERTOP_MODULE)|def(CONFIG_POWERTOP))
+procps/ps: (def(CONFIG_PS_MODULE)|def(CONFIG_PS))
+procps/renice: (def(CONFIG_RENICE_MODULE)|def(CONFIG_RENICE))
+procps/smemcap: (def(CONFIG_SMEMCAP_MODULE)|def(CONFIG_SMEMCAP))
+procps/sysctl: (def(CONFIG_BB_SYSCTL_MODULE)|def(CONFIG_BB_SYSCTL))
+procps/top: (def(CONFIG_TOP_MODULE)|def(CONFIG_TOP))
+procps/uptime: (def(CONFIG_UPTIME_MODULE)|def(CONFIG_UPTIME))
+procps/watch: (def(CONFIG_WATCH_MODULE)|def(CONFIG_WATCH))
+runit/chpst: (def(CONFIG_ENVDIR)|def(CONFIG_ENVDIR_MODULE)|def(CONFIG_ENVUIDGID)|def(CONFIG_SETUIDGID_MODULE)|def(CONFIG_SETUIDGID)|def(CONFIG_ENVUIDGID_MODULE)|def(CONFIG_CHPST_MODULE)|def(CONFIG_SOFTLIMIT)|def(CONFIG_SOFTLIMIT_MODULE)|def(CONFIG_CHPST))
+runit/runsv: (def(CONFIG_RUNSV_MODULE)|def(CONFIG_RUNSV))
+runit/runsvdir: (def(CONFIG_RUNSVDIR_MODULE)|def(CONFIG_RUNSVDIR))
+runit/sv: (def(CONFIG_SV_MODULE)|def(CONFIG_SV))
+runit/svlogd: (def(CONFIG_SVLOGD_MODULE)|def(CONFIG_SVLOGD))
+selinux/chcon: (def(CONFIG_CHCON_MODULE)|def(CONFIG_CHCON))
+selinux/getenforce: (def(CONFIG_GETENFORCE_MODULE)|def(CONFIG_GETENFORCE))
+selinux/getsebool: (def(CONFIG_GETSEBOOL_MODULE)|def(CONFIG_GETSEBOOL))
+selinux/load_policy: (def(CONFIG_LOAD_POLICY_MODULE)|def(CONFIG_LOAD_POLICY))
+selinux/matchpathcon: (def(CONFIG_MATCHPATHCON_MODULE)|def(CONFIG_MATCHPATHCON))
+selinux/runcon: (def(CONFIG_RUNCON_MODULE)|def(CONFIG_RUNCON))
+selinux/selinuxenabled: (def(CONFIG_SELINUXENABLED_MODULE)|def(CONFIG_SELINUXENABLED))
+selinux/sestatus: (def(CONFIG_SESTATUS_MODULE)|def(CONFIG_SESTATUS))
+selinux/setenforce: (def(CONFIG_SETENFORCE_MODULE)|def(CONFIG_SETENFORCE))
+selinux/setfiles: (def(CONFIG_SETFILES_MODULE)|def(CONFIG_SETFILES)|def(CONFIG_RESTORECON_MODULE)|def(CONFIG_RESTORECON))
+selinux/setsebool: (def(CONFIG_SETSEBOOL_MODULE)|def(CONFIG_SETSEBOOL))
+shell/ash: (def(CONFIG_ASH_MODULE)|def(CONFIG_ASH))
+shell/ash_ptr_hack: (def(CONFIG_ASH_MODULE)|def(CONFIG_ASH))
+shell/cttyhack: (def(CONFIG_CTTYHACK_MODULE)|def(CONFIG_CTTYHACK))
+shell/hush: (def(CONFIG_HUSH_MODULE)|def(CONFIG_HUSH))
+shell/match: (def(CONFIG_HUSH_MODULE)|def(CONFIG_HUSH))
+shell/math: (def(CONFIG_SH_MATH_SUPPORT_MODULE)|def(CONFIG_SH_MATH_SUPPORT))
+shell/random: (def(CONFIG_ASH_RANDOM_SUPPORT_MODULE)|def(CONFIG_ASH_RANDOM_SUPPORT)|def(CONFIG_HUSH_RANDOM_SUPPORT_MODULE)|def(CONFIG_HUSH_RANDOM_SUPPORT))
+shell/shell_common: (def(CONFIG_ASH_MODULE)|def(CONFIG_ASH)|def(CONFIG_HUSH_MODULE)|def(CONFIG_HUSH))
+sysklogd/klogd: (def(CONFIG_KLOGD_MODULE)|def(CONFIG_KLOGD))
+sysklogd/logread: (def(CONFIG_LOGREAD_MODULE)|def(CONFIG_LOGREAD))
+sysklogd/syslogd_and_logger: (def(CONFIG_LOGGER_MODULE)|def(CONFIG_LOGGER)|def(CONFIG_SYSLOGD_MODULE)|def(CONFIG_SYSLOGD))
+util-linux/acpid: (def(CONFIG_ACPID_MODULE)|def(CONFIG_ACPID))
+util-linux/blkid: (def(CONFIG_BLKID_MODULE)|def(CONFIG_BLKID))
+util-linux/blockdev: (def(CONFIG_BLOCKDEV_MODULE)|def(CONFIG_BLOCKDEV))
+util-linux/dmesg: (def(CONFIG_DMESG_MODULE)|def(CONFIG_DMESG))
+util-linux/fbset: (def(CONFIG_FBSET_MODULE)|def(CONFIG_FBSET))
+util-linux/fdformat: (def(CONFIG_FDFORMAT_MODULE)|def(CONFIG_FDFORMAT))
+util-linux/fdisk: (def(CONFIG_FDISK_MODULE)|def(CONFIG_FDISK))
+util-linux/findfs: (def(CONFIG_FINDFS_MODULE)|def(CONFIG_FINDFS))
+util-linux/flock: (def(CONFIG_FLOCK_MODULE)|def(CONFIG_FLOCK))
+util-linux/freeramdisk: (def(CONFIG_FDFLUSH_MODULE)|def(CONFIG_FDFLUSH)|def(CONFIG_FREERAMDISK_MODULE)|def(CONFIG_FREERAMDISK))
+util-linux/fsck_minix: (def(CONFIG_FSCK_MINIX_MODULE)|def(CONFIG_FSCK_MINIX))
+util-linux/getopt: (def(CONFIG_GETOPT_MODULE)|def(CONFIG_GETOPT))
+util-linux/hexdump: (def(CONFIG_HEXDUMP_MODULE)|def(CONFIG_HEXDUMP))
+util-linux/hwclock: (def(CONFIG_HWCLOCK_MODULE)|def(CONFIG_HWCLOCK))
+util-linux/ipcrm: (def(CONFIG_IPCRM_MODULE)|def(CONFIG_IPCRM))
+util-linux/ipcs: (def(CONFIG_IPCS_MODULE)|def(CONFIG_IPCS))
+util-linux/losetup: (def(CONFIG_LOSETUP_MODULE)|def(CONFIG_LOSETUP))
+util-linux/lspci: (def(CONFIG_LSPCI_MODULE)|def(CONFIG_LSPCI))
+util-linux/lsusb: (def(CONFIG_LSUSB_MODULE)|def(CONFIG_LSUSB))
+util-linux/mdev: (def(CONFIG_MDEV_MODULE)|def(CONFIG_MDEV))
+util-linux/mkfs_ext2: (def(CONFIG_MKFS_EXT2_MODULE)|def(CONFIG_MKFS_EXT2))
+util-linux/mkfs_minix: (def(CONFIG_MKFS_MINIX_MODULE)|def(CONFIG_MKFS_MINIX))
+util-linux/mkfs_reiser: (def(CONFIG_MKFS_REISER_MODULE)|def(CONFIG_MKFS_REISER))
+util-linux/mkfs_vfat: (def(CONFIG_MKFS_VFAT_MODULE)|def(CONFIG_MKFS_VFAT))
+util-linux/mkswap: (def(CONFIG_MKSWAP_MODULE)|def(CONFIG_MKSWAP))
+util-linux/more: (def(CONFIG_MORE_MODULE)|def(CONFIG_MORE))
+util-linux/mount: (def(CONFIG_MOUNT_MODULE)|def(CONFIG_MOUNT))
+util-linux/pivot_root: (def(CONFIG_PIVOT_ROOT_MODULE)|def(CONFIG_PIVOT_ROOT))
+util-linux/rdate: (def(CONFIG_RDATE_MODULE)|def(CONFIG_RDATE))
+util-linux/rdev: (def(CONFIG_RDEV_MODULE)|def(CONFIG_RDEV))
+util-linux/readprofile: (def(CONFIG_READPROFILE_MODULE)|def(CONFIG_READPROFILE))
+util-linux/rev: (def(CONFIG_REV_MODULE)|def(CONFIG_REV))
+util-linux/rtcwake: (def(CONFIG_RTCWAKE_MODULE)|def(CONFIG_RTCWAKE))
+util-linux/script: (def(CONFIG_SCRIPT_MODULE)|def(CONFIG_SCRIPT))
+util-linux/scriptreplay: (def(CONFIG_SCRIPTREPLAY_MODULE)|def(CONFIG_SCRIPTREPLAY))
+util-linux/setarch: (def(CONFIG_SETARCH_MODULE)|def(CONFIG_SETARCH))
+util-linux/swaponoff: (def(CONFIG_SWAPONOFF_MODULE)|def(CONFIG_SWAPONOFF))
+util-linux/switch_root: (def(CONFIG_SWITCH_ROOT_MODULE)|def(CONFIG_SWITCH_ROOT))
+util-linux/umount: (def(CONFIG_UMOUNT_MODULE)|def(CONFIG_UMOUNT))
+util-linux/volume_id/btrfs: (def(CONFIG_FEATURE_VOLUMEID_BTRFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_BTRFS))
+util-linux/volume_id/cramfs: (def(CONFIG_FEATURE_VOLUMEID_CRAMFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_CRAMFS))
+util-linux/volume_id/ext: (def(CONFIG_FEATURE_VOLUMEID_EXT_MODULE)|def(CONFIG_FEATURE_VOLUMEID_EXT))
+util-linux/volume_id/fat: (def(CONFIG_FEATURE_VOLUMEID_FAT_MODULE)|def(CONFIG_FEATURE_VOLUMEID_FAT))
+util-linux/volume_id/get_devname: (def(CONFIG_BLKID_MODULE)|def(CONFIG_BLKID)|def(CONFIG_FINDFS_MODULE)|def(CONFIG_FINDFS)|def(CONFIG_FEATURE_MOUNT_LABEL_MODULE)|def(CONFIG_FEATURE_MOUNT_LABEL))
+util-linux/volume_id/hfs: (def(CONFIG_FEATURE_VOLUMEID_HFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_HFS))
+util-linux/volume_id/iso9660: (def(CONFIG_FEATURE_VOLUMEID_ISO9660_MODULE)|def(CONFIG_FEATURE_VOLUMEID_ISO9660))
+util-linux/volume_id/jfs: (def(CONFIG_FEATURE_VOLUMEID_JFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_JFS))
+util-linux/volume_id/linux_raid: (def(CONFIG_FEATURE_VOLUMEID_LINUXRAID_MODULE)|def(CONFIG_FEATURE_VOLUMEID_LINUXRAID))
+util-linux/volume_id/linux_swap: (def(CONFIG_FEATURE_VOLUMEID_LINUXSWAP_MODULE)|def(CONFIG_FEATURE_VOLUMEID_LINUXSWAP))
+util-linux/volume_id/luks: (def(CONFIG_FEATURE_VOLUMEID_LUKS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_LUKS))
+util-linux/volume_id/ntfs: (def(CONFIG_FEATURE_VOLUMEID_NTFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_NTFS))
+util-linux/volume_id/ocfs2: (def(CONFIG_FEATURE_VOLUMEID_OCFS2_MODULE)|def(CONFIG_FEATURE_VOLUMEID_OCFS2))
+util-linux/volume_id/reiserfs: (def(CONFIG_FEATURE_VOLUMEID_REISERFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_REISERFS))
+util-linux/volume_id/romfs: (def(CONFIG_FEATURE_VOLUMEID_ROMFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_ROMFS))
+util-linux/volume_id/sysv: (def(CONFIG_FEATURE_VOLUMEID_SYSV_MODULE)|def(CONFIG_FEATURE_VOLUMEID_SYSV))
+util-linux/volume_id/udf: (def(CONFIG_FEATURE_VOLUMEID_UDF_MODULE)|def(CONFIG_FEATURE_VOLUMEID_UDF))
+util-linux/volume_id/util: (def(CONFIG_VOLUMEID_MODULE)|def(CONFIG_VOLUMEID))
+util-linux/volume_id/volume_id: (def(CONFIG_VOLUMEID_MODULE)|def(CONFIG_VOLUMEID))
+util-linux/volume_id/xfs: (def(CONFIG_FEATURE_VOLUMEID_XFS_MODULE)|def(CONFIG_FEATURE_VOLUMEID_XFS))

@@ -24,7 +24,7 @@ cd ..
 #ln -s linkerblacklist gitbusybox/linkerblacklist
 
 #copy an old file pc in case KBuildMiner is not installed
-cp KBuildMiner/pc.txt gitbusybox/pc.txt
+#cp KBuildMiner/pc.txt gitbusybox/pc.txt
 
 # the following tries to extract presence conditions from the build system
 # you need to install KBuildMiner to get the latest conditions (see KBuildMiner directory)
@@ -35,9 +35,10 @@ grep -v libunarchive gitbusybox/pc.txt | grep -v Unknown > gitbusybox/pc_clean.t
 
 # extract a list of all relevant files
 cat gitbusybox/pc.txt | sed s/\\.c:.*// | grep -v libunarchive | grep -v "/tc$"  > gitbusybox/filelist
+./run.sh de.fosd.typechef.busybox.CleanFileList --openFeatureList gitbusybox/features --featureModel gitbusybox/featureModel.dimacs gitbusybox/pc_clean.txt > gitbusybox/pc_processed.txt 2> gitbusybox/deadFiles
 
 # generate .pc files from the presence condition list
-./run.sh de.fosd.typechef.busybox.ProcessFileList gitbusybox/pc_clean.txt gitbusybox/
+./run.sh de.fosd.typechef.busybox.GeneratePCFiles --workingDir gitbusybox/ gitbusybox/pc_processed.txt 
 
 # read the feature model and create corresponding files
 ./run.sh de.fosd.typechef.busybox.KConfigReader gitbusybox/ gitbusybox/featureModel gitbusybox/header.h gitbusybox/features

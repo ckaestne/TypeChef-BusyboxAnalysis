@@ -21,8 +21,7 @@ cd ..
 ./cleanBusyboxGitASTs.sh
 ./analyzeBusyboxGit.sh
 
-cat dbg.config | java -jar DBGFileChecker.jar
-grep FAIL gitbusybox/out > gitbusybox/outfail
+./run.sh de.fosd.typechef.busybox.SummarizeResult gitbusybox/ gitbusybox/filelist | grep FAIL > gitbusybox/outfail
 
 
 #linker checks
@@ -35,4 +34,4 @@ mv busyboxfinal.dbginterface gitbusybox/busyboxfinal.dbginterface
 cp gitbusybox/interfacediff gitbusybox/interfacediff.txt
 cp gitbusybox/outfail gitbusybox/outfail.txt
 
-echo Finished nightly with `wc -l gitbusybox/outfail` and `wc -l gitbusybox/interfacediff` | mail -s "busybox nightly" -a gitbusybox/outfail.txt -a gitbusybox/interfacediff.txt kaestner@cs.cmu.edu
+echo Finished nightly with `wc -l gitbusybox/outfail` file and `wc -l gitbusybox/interfacediff` linker issues and `wc -l gitbusybox/deadFiles` dead files | mail -s "busybox nightly" -a gitbusybox/outfail.txt -a gitbusybox/interfacediff.txt -a gitbusybox/deadFiles kaestner@cs.cmu.edu 

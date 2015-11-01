@@ -5,5 +5,4 @@
 #
 #create a directory  busybox-1.18.5 and download busybox sources there
 
-./run.sh de.fosd.typechef.busybox.ProcessFileList busybox/busybox_pcs.txt busybox-1.18.5/
-
+./run.sh de.fosd.typechef.busybox.GeneratePCFiles --workingDir busybox-1.18.5/ busybox/busybox_pcs.txt
