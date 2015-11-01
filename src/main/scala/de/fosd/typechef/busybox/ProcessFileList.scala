@@ -1,42 +1,164 @@
 package de.fosd.typechef.busybox
 
-import scala.util.parsing.combinator._
-import scala.util.control.Breaks
 import java.io._
+
 import de.fosd.typechef.featureexpr.FeatureExprFactory.{False, True, createDefinedExternal}
-import de.fosd.typechef.featureexpr.FeatureExpr
+import de.fosd.typechef.featureexpr.{FeatureExpr, FeatureExprFactory, FeatureExprParser}
+
+import scala.io.Source
+import scala.util.parsing.combinator._
+
 
 /**
- * processes thorstens file list (passed as parameter) and creates corresponding .pi.pc files
+ * The CleanFileList tool takes a file list produced by KConfigMiner and a feature model
  *
- * (presence conditions for files, in contrast to .pi.fm which represents a local feature model for dependencies)
+ * It parses the KConfigMiner format, removes all .S files, removes all files
+ * with unsatisfiable presence conditions, and prints the output in a format
+ * that is easier to process (directly parsable by TypeChef) to stdout
  *
- * call with file created by thorsten as parameter
+ * If also an open feature list is given, all features not on that list are substituted
+ * by False
  */
-object ProcessFileList extends RegexParsers {
+object CleanFileList {
 
-    def toFeature(name: String, isModule: Boolean) =
-    //ChK: deactivate modules for now. not interested and messes with the sat solver
-        if (isModule) False
+    private case class Config(openFeatureList: Option[java.io.File] = None,
+                              featureModel: Option[java.io.File] = None,
+                              inputFile: java.io.File = null)
+
+
+    def main(args: Array[String]): Unit = {
+        val parser = new scopt.OptionParser[Config]("CleanFileList") {
+            opt[File]("openFeatureList") valueName ("<dir>") action { (x, c) =>
+                c.copy(openFeatureList = Some(x))
+            } text ("an open feature list can be provided to filter any features not supported in this architecture")
+            opt[File]("featureModel") valueName ("<dimacs file>") action { (x, c) =>
+                c.copy(featureModel = Some(x))
+            } text ("feature model in dimacs format")
+            arg[File]("<file>") required() action { (x, c) =>
+                c.copy(inputFile = x)
+            }
+        }
+        parser.parse(args, Config()) map { config =>
+            _main(config)
+        } getOrElse {
+        }
+    }
+
+    var openFeatures: Option[Set[String]] = None
+
+    def _main(config: Config) {
+        val stderr = new PrintWriter(System.err, true)
+        if (!config.featureModel.isDefined)
+            stderr.println("Warning: No feature model provided.")
+        if (!config.openFeatureList.isDefined)
+            stderr.println("Warning: No open-feature list provided.")
+
+
+        openFeatures = config.openFeatureList map (Source.fromFile(_).getLines().map("CONFIG_"+_).toSet)
+        val fmFactory = FeatureExprFactory.dflt.featureModelFactory
+        val featureModel = config.featureModel.map(f => fmFactory.createFromDimacsFile(f.getAbsolutePath)).getOrElse(fmFactory.empty)
+        val parser = new KConfigMinerParser(openFeatures)
+        val FileNameFilter = """.*\.c""".r
+
+        val lines = io.Source.fromFile(config.inputFile).getLines
+        for (line <- lines; fields = line.split(':'); fullFilename = fields(0) if (
+            fullFilename match {
+                case FileNameFilter(_*) => true
+                case _ => false
+            }
+            )) {
+            val pcExpr: parser.ParseResult[FeatureExpr] = parser.parseAll(parser.expr, fields(1))
+
+            pcExpr match {
+                case parser.Success(cond: FeatureExpr, _) =>
+                    //file should be parsed
+                    if (cond.isSatisfiable(featureModel))
+                        println(fullFilename.dropRight(2) + ": " + cond)
+                    else
+                        stderr.println("Skipping file with unsatisfiable condition %s: %s (%s)".format(fullFilename, fields(1), cond))
+
+
+                case parser.NoSuccess(msg, _) =>
+                    stderr.println("Could not parse " + fullFilename + ": " + fields(1))
+            }
+        }
+    }
+
+
+}
+
+/**
+ * The ExtractFileList tool takes a preprocessed file with presence conditions (created by CleanFileList)
+ * and creates .pc files
+ */
+object GeneratePCFiles {
+
+
+    private case class Config(workingDir: java.io.File = new File("."),
+                              inputFile: java.io.File = null)
+
+
+    def main(args: Array[String]): Unit = {
+        val parser = new scopt.OptionParser[Config]("CleanFileList") {
+            opt[File]("workingDir") valueName ("<dir>") action { (x, c) =>
+                c.copy(workingDir = x)
+            } text ("working directory (root of the linux tree)")
+            arg[File]("<file>") required() action { (x, c) =>
+                c.copy(inputFile = x)
+            }
+        }
+        parser.parse(args, Config()) map { config =>
+            _main(config)
+        } getOrElse {
+        }
+    }
+
+    def _main(config: Config) {
+        assert(config.workingDir.isDirectory && config.workingDir.exists(), "working directory not found")
+        assert(config.inputFile.exists(), "input file not found: " + config.inputFile)
+
+        val lines = io.Source.fromFile(config.inputFile).getLines
+        for (line <- lines; fields = line.split(':')) {
+            val filename = fields(0)
+            val fexpr = new FeatureExprParser().parse(fields(1))
+
+            val pcFile = new File(config.workingDir, filename + ".pc")
+//            println(pcFile+" -> "+fexpr)
+            if (!fexpr.isTautology()) {
+                val pcWriter = new PrintWriter(pcFile)
+                fexpr.print(pcWriter)
+                pcWriter.close
+            } else
+            if (pcFile.exists()) pcFile.delete()
+        }
+    }
+}
+
+
+/**
+ * processes thorstens file list (passed as parameter) and checks which files have satisfiable
+ * presence conditions
+ */
+class KConfigMinerParser(openFeatures: Option[Set[String]]) extends RegexParsers {
+
+    def toFeature(name: String, isModule: Boolean): FeatureExpr = {
+        val cname = "CONFIG_" + (if (isModule) name + "_MODULE" else name)
+        if (openFeatures.isDefined && !(openFeatures.get contains cname)) False
         else
-            createDefinedExternal("CONFIG_" +
-                (if (isModule)
-                //name + "_2" // This is not SAT-solving, use the Linux names!
-                    name + "_MODULE"
-                else
-                    name))
+            createDefinedExternal(cname)
+    }
 
     def expr: Parser[FeatureExpr] =
-        "Unknown" ~ "(" ~ expr ~ ")" ^^ {_ => True} |
-            orExpr
-
-    def orExpr: Parser[FeatureExpr] =
-        ("(" ~> (expr ~ "||" ~ expr) <~ ")") ^^ {case (a ~ _ ~ b) => a or b} |
+        ("(" ~> (expr ~ "||" ~ expr) <~ ")") ^^ {
+            case (a ~ _ ~ b) => a or b
+        } |
             term
 
     def term: Parser[FeatureExpr] =
         "!" ~> commit(expr) ^^ (_ not) |
-            ("(" ~> (expr ~ "&&" ~ expr) <~ ")") ^^ {case (a ~ _ ~ b) => a and b} |
+            ("(" ~> (expr ~ "&&" ~ expr) <~ ")") ^^ {
+                case (a ~ _ ~ b) => a and b
+            } |
             bool
 
     def bool: Parser[FeatureExpr] =
@@ -55,8 +177,14 @@ object ProcessFileList extends RegexParsers {
                     // X != m should be probably translated to something like CONFIG_X && !CONFIG_X_2.
                         throw new RuntimeException("Can't handle this case!")
             } |
-            ("(" ~> (ID ~ "==" ~! featVal) <~ ")") ^^ {case (id ~ _ ~ isModule) => toFeature(id, isModule)} |
+            ("(" ~> (ID ~ "==" ~ featVal) <~ ")") ^^ {
+                case (id ~ _ ~ isModule) => toFeature(id, isModule)
+            } |
+            ("(" ~> (ID ~ "==" ~ stringLit) <~ ")") ^^ {
+                case (id ~ _ ~ value) => System.err.println("nonboolean %s=%s not supported".format(id, value)); True
+            } |
             ID ^^ (id => toFeature(id, true) or toFeature(id, false))
+
     //Having this case here makes the grammar not LL(1) - and one expression
     //triggers exponential backtracking. Since source
     //phrases are always parenthesizes, I can include parentheses in each
@@ -68,49 +196,7 @@ object ProcessFileList extends RegexParsers {
 
     def featVal = ("\"" ~> "(y|m)".r <~ "\"") ^^ (_ == "m")
 
-    def main(args: Array[String]) {
-        if (args.isEmpty) {
-            println("expected parameter: file with presence conditions\nsecond parameter for working directory (optional)")
-            sys.exit()
-        }
-
-        val pcList = args(0)
-        val workingDir = if (args.size >= 2) args(1) else ""
-
-        val lines = io.Source.fromFile(pcList).getLines
-        val mybreaks = new Breaks
-        val stderr = new PrintWriter(System.err, true)
+    def stringLit = ("\"" ~> "[a-z]*".r <~ "\"")
 
 
-        import mybreaks.{break, breakable}
-        breakable {
-            val FileNameFilter = """.*\.c""".r
-            for (line <- lines; fields = line.split(':'); fullFilename = fields(0) if (
-                fullFilename match {
-                    case FileNameFilter(_*) => true
-                    case _ => false
-                }
-                )) {
-                val fullFilenameNoExt = workingDir + fullFilename.dropRight(2)
-                val filename = fullFilename.substring(fullFilename.lastIndexOf("/") + 1).dropRight(2)
-
-                val pcExpr = parseAll(expr, fields(1).replaceAll("-", "_"))
-                pcExpr match {
-                    case Success(cond, _) =>
-                        //file should be parsed
-                        println(fullFilename + " " + cond)
-
-                        if (!cond.isTautology()) {
-                            val pcFile = new PrintWriter(new File(fullFilenameNoExt + ".pc"))
-                            cond.print(pcFile)
-                            pcFile.close
-                        }
-
-                    case NoSuccess(msg, _) =>
-                        stderr.println(fullFilename + " " + pcExpr)
-                        break
-                }
-            }
-        }
-    }
 }
