@@ -198,5 +198,4 @@ class KConfigMinerParser(openFeatures: Option[Set[String]]) extends RegexParsers
 
     def stringLit = ("\"" ~> "[a-z]*".r <~ "\"")
 
-
 }

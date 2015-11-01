@@ -46,20 +46,38 @@ object KConfigReader extends App {
     var features = List[String]()
     var choiceAlternatives: List[String] = Nil
 
+    var version = io.Source.fromFile(path + "Makefile").getLines().toList
+    var prefix = "IF"
+    var prefixNegation = "IF_NOT"
+
     def processConfig() {
         if (flag == "") return;
         if (flagType == "bool") {
             println(dir + "/" + flag /*+ " => " + flagDep*/)
 
+           prefix = "IF"
+           prefixNegation = "IF_NOT"
+
+           // Version 1.14 and previous versions use other makros
+           if (!version.isEmpty && version.head.substring(0, 11) == "VERSION = 1") {
+                version = version.tail;
+
+                if (!version.isEmpty && ((version.head.length() == 15 &&
+                                          version.head.substring(13, 14) == "1" && version.head.substring(14, 15) < "5")
+                                     || (version.head.length() <= 14 ))) {
+                    prefix = "USE"
+                    prefixNegation = "SKIP"
+                }
+            }
 
             outHeader += "#ifdef CONFIG_" + flag + "\n" +
                 "   #define ENABLE_" + flag + " 1\n" +
-                "   #define IF_" + flag + "(...) __VA_ARGS__\n" +
-                "   #define IF_NOT_" + flag + "(...)\n" +
+                "   #define " + prefix + "_" + flag + "(...) __VA_ARGS__\n" +
+                "   #define " + prefixNegation + "_" + flag + "(...)\n" +
                 "#else\n" +
                 "   #define ENABLE_" + flag + " 0\n" +
-                "   #define IF_NOT_" + flag + "(...) __VA_ARGS__\n" +
-                "   #define IF_" + flag + "(...)\n" +
+                "   #define " + prefixNegation + "_" + flag + "(...) __VA_ARGS__\n" +
+                "   #define " + prefix + "_" + flag + "(...)\n" +
                 "#endif\n\n"
 
             if (flagDep.trim.startsWith("&&")) flagDep = flagDep.drop(2)
@@ -77,6 +95,7 @@ object KConfigReader extends App {
         skipHelp = false
         flagType = ""
         flagDep = ""
+        version = io.Source.fromFile(path + "Makefile").getLines().toList
     }
     def processChoice() {
         if (choiceAlternatives.isEmpty) return;
