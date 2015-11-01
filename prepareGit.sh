@@ -34,8 +34,8 @@ cd ..
 grep -v libunarchive gitbusybox/pc.txt | grep -v Unknown > gitbusybox/pc_clean.txt
 
 # extract a list of all relevant files
-cat gitbusybox/pc.txt | sed s/\\.c:.*// | grep -v libunarchive | grep -v "/tc$"  > gitbusybox/filelist
 ./run.sh de.fosd.typechef.busybox.CleanFileList --openFeatureList gitbusybox/features --featureModel gitbusybox/featureModel.dimacs gitbusybox/pc_clean.txt > gitbusybox/pc_processed.txt 2> gitbusybox/deadFiles
+cat gitbusybox/pc_processed.txt | sed s/\\:.*// | grep -v libunarchive | grep -v "/tc$"  > gitbusybox/filelist
 
 # generate .pc files from the presence condition list
 ./run.sh de.fosd.typechef.busybox.GeneratePCFiles --workingDir gitbusybox/ gitbusybox/pc_processed.txt 
