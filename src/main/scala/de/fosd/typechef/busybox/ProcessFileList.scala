@@ -54,7 +54,7 @@ object CleanFileList {
             stderr.println("Warning: No open-feature list provided.")
 
 
-        openFeatures = config.openFeatureList map (Source.fromFile(_).getLines().map("CONFIG_"+_).toSet)
+        openFeatures = config.openFeatureList map (Source.fromFile(_).getLines().toSet)
         val fmFactory = FeatureExprFactory.dflt.featureModelFactory
         val featureModel = config.featureModel.map(f => fmFactory.createFromDimacsFile(f.getAbsolutePath)).getOrElse(fmFactory.empty)
         val parser = new KConfigMinerParser(openFeatures)

@@ -20,6 +20,9 @@ make applets/applets.o
 > include/applets.h
 cd ..
 
+# read the feature model and create corresponding files
+./run.sh de.fosd.typechef.busybox.KConfigReader gitbusybox/ gitbusybox/featureModel gitbusybox/header.h gitbusybox/features
+
 #use the standard blacklist
 #ln -s linkerblacklist gitbusybox/linkerblacklist
 
@@ -39,9 +42,6 @@ cat gitbusybox/pc_processed.txt | sed s/\\:.*// | grep -v libunarchive | grep -v
 
 # generate .pc files from the presence condition list
 ./run.sh de.fosd.typechef.busybox.GeneratePCFiles --workingDir gitbusybox/ gitbusybox/pc_processed.txt 
-
-# read the feature model and create corresponding files
-./run.sh de.fosd.typechef.busybox.KConfigReader gitbusybox/ gitbusybox/featureModel gitbusybox/header.h gitbusybox/features
 
 # translate the feature model into a .dimacs file for faster processing
 ./run.sh de.fosd.typechef.busybox.CreateDimacs --cnf gitbusybox/featureModel gitbusybox/featureModel.dimacs

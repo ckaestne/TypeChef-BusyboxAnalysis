@@ -202,7 +202,7 @@ object KConfigReader extends App {
     if (args.size > 3) {
         val p = new java.io.PrintWriter(args(3))
         try {
-            for (feature <- features) p.write(feature + "\n")
+            for (feature <- features) p.write("CONFIG_"+feature + "\n")
         } finally {
             p.close()
         }
