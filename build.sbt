@@ -1,8 +1,8 @@
 name := "TypeChef Busybox Analysis"
 
-version := "0.3.6"
+version := "0.3.7"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.6"
 
 
 libraryDependencies += "com.github.scopt" %% "scopt" % "3.2.0"
